@@ -134,7 +134,7 @@ const Join_step2 = () => {
 	
 	return (
 		<div className='main inner'>
-			<Title title={"회원가입"}/>
+			<Title title={"회원가입"} center={true}/>
 			<JoinStepUl step={2}/>
 			<form onSubmit={onSubmit} className='submitForm'>
 				<table className='joinstepForm mini'>

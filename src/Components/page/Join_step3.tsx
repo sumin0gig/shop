@@ -11,7 +11,7 @@ const Join_step3 = () => {
   const username=getCookie("username")
   return (
 		<div className='main inner minheight300'>
-			<Title title={"회원가입"}/>
+			<Title title={"회원가입"} center={true}/>
 			<JoinStepUl step={3}/>
 			<div className='joinstepForm center'>
         <h3>{username} 고객님</h3>

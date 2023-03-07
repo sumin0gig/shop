@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Title = ({title}:{title:string}) => {
+const Title = ({title,center=false}:{title:string,center?:boolean}) => {
 	return (
-			<p className='title'>{title}</p>
+			<p className={center?'title center':'title'}>{title}</p>
 	);
 };
 

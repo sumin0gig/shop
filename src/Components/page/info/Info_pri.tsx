@@ -1,5 +1,4 @@
 import React from 'react';
-import { siteName } from '../../../App';
 
 const Info_pri = () => {
 	return (

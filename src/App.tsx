@@ -1,8 +1,10 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AdminHeader from './Components/AdminHeader';
 import Footer from './Components/Footer';
 import Header from './Components/Header';
+import AdmPrd from './Components/page/AdmPrd';
 import Info_pri from './Components/page/info/Info_pri';
 import Info_user from './Components/page/info/Info_user';
 import Join_step1 from './Components/page/Join_step1';
@@ -23,6 +25,10 @@ function App() {
         <Route path='/join/3' element={<><Header/><Join_step3/><Footer/></>}/>
         <Route path='/login' element={<><Header/><Login/><Footer/></>}/>
         <Route path='/logout' element={<Logout/>}/>
+
+        <Route path='/admin' element={<AdminHeader/>}/>
+        <Route path='/admin/product' element={<><AdminHeader/><AdmPrd/></>}/>
+
         <Route path='/info/user' element={<Info_user/>}/>
         <Route path='/info/pri' element={<Info_pri/>}/>
       </Routes>
