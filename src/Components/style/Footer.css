@@ -1,0 +1,16 @@
+footer{
+	border-top: 1px solid #ccc;
+}
+.foot{
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+.foot.top{
+	width: 70%;
+}
+.foot.bottom{
+	width: 80%;
+	height: 70px;
+}

@@ -1,0 +1,85 @@
+header{
+	border-bottom: 1px solid #ccc;
+	z-index: 99;
+	position: fixed;
+	top: 0;
+	background: #fff;
+	width: 100%;
+}
+.head{
+	max-width: 1600px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.head.top{
+	height: 70px;
+}
+.head.bottom{
+	height: 70px;
+	width: 50%;
+	margin: 0 auto;
+}
+.wrapper{
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: flex-start;
+	align-items: center;
+	position: relative;
+}
+.wrap{
+	width: 200px;
+	display: flex;
+	justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+	padding: 5px 20px;
+}
+.wrap .wrapbtn{
+	border: none;
+	background-color: inherit;
+	padding: 5px;
+	cursor: pointer;
+}
+.wrap .wrapbtn:hover{
+	color: var(--hover-color);
+}
+
+.wrapper .opener{
+	height: 0;
+	position: absolute;
+	padding: 0 20px;
+	text-align: center;
+	top: 50px;
+	left: 50%;
+	width: 200px;
+	transform: translateX(-50%);
+	transition: .5s;
+	overflow: hidden;
+	background-color: #fff;
+}
+
+.wrapper .opener.opener-on{
+	height: auto;
+	padding: 10px 20px;
+	border: 1px solid #ccc;
+	border-radius: 15px;
+}
+.wrapper .opener > table{
+	margin: 0 auto;
+}
+.wrapper .opener > table > caption{
+	font-weight: bold;
+}
+.wrapper .opener > table td{
+	padding:0 5px;
+}
+.headList{
+	color: var(--gray-color);
+}
+.headList > li{
+	cursor: pointer;
+}
+.headList > li:hover{
+	color: var(--hover-color);
+}

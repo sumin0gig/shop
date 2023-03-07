@@ -1,0 +1,93 @@
+/* joinStepUl */
+.joinsteps{
+	display: flex;
+	justify-content: center;
+	margin: 30px 0;
+}
+.joinstep{
+	position: relative;
+	padding: 30px 80px;
+	display: flex;
+	justify-content: center;
+	flex-flow: column wrap;
+}
+.joinstep b{
+	text-align: center;
+}
+.joinstep::before{
+	content: "";
+	display: block;
+	background-color: var(--light-gray-color);
+	width: 120px;
+	height: 120px;
+	position: absolute;
+	border-radius: 50%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: -1;
+}
+.joinstep.on{
+	color: #fff;
+}
+.joinstep.on::before{
+	background-color: black;
+}
+.rotateline{
+	transform: rotate(90deg);
+	z-index: -2;
+}
+
+/* Join_step */
+.joinstepForm{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin-bottom: 50px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #ccc;
+}
+.joinstepForm.minheight300{
+	min-height: 300px;
+}
+.joinstepForm p{
+	padding: 0 20px;
+}
+.joinstepForm > iframe{
+	width: 100%;
+	height: 520px;
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+}
+.info_iframe{
+	padding: 25px;
+}
+.info_iframe th,.info_iframe td{
+	border: 1px solid var(--gray-color);
+	padding: 5px 10px;
+}
+
+/* step2 only */
+.submitForm{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 30px 0;
+}
+.joinstepForm.mini input:not([type="radio"]),
+.joinstepForm.mini select{width: 100%;}
+.joinstepForm.mini .inputs{
+	display: flex;
+	flex-flow: row nowrap;
+}
+.joinstepForm.mini tr{
+	height: 80px;
+}
+.joinstepForm.mini td{
+	padding: 0 50px;
+}
+.joinstepForm.mini p{
+	color: var(--gray-color);
+}

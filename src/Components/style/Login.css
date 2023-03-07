@@ -1,0 +1,59 @@
+.loginform{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.loginform_left{
+  width: 48%;
+  max-width: 500px;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  align-items: center;
+}
+.loginform_right{
+  width: 48%;
+  max-width: 500px;
+  display: flex;
+  flex-flow: column wrap;
+  line-height: 2em;
+}
+.loginform_right span{
+  padding-right: 10px;
+}
+.loginform .logininputs{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.loginbanner{
+  font-size: 0;
+  margin: 30px 0;
+  background: url('../../../public/login_banner.png') 50% 0/auto 100px no-repeat scroll rgb(219,194,153);
+  background-size: contain;
+  width: 1200px;
+  height: 200px;
+}
+.loginSearch{
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.loginSearch p{
+  cursor: pointer;
+  padding: 0 5px;
+  margin: 10px 10px 30px 0;
+}
+.loginJoin{
+  display: inline-flex;
+  justify-content: flex-end;
+}
+.loginJoin a{
+  width: 50%;
+}
+span.star{
+  color: orangered;
+  padding-left: 5px;
+}
