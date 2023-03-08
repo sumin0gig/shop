@@ -1,0 +1,24 @@
+.productDataDiv{
+  padding: 20px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid var(--gray-color);
+  background-color: #fff;
+}
+.productDataDiv input{
+  width: 100%;
+}
+.productDataDiv >div{
+  width: 30%;
+}
+.productDataDiv .mainProduct{
+  width: 100%;
+  height: auto;
+}
+.productState{
+  display: flex;
+}
+.productDataDiv pre{
+  margin-left: 20px;
+}

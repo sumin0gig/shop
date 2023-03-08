@@ -67,10 +67,11 @@ table{
   padding: 8px;
 }
 .underlineDiv{
+  max-width: 1800px;
   width: 100%;
   border-bottom: 1px solid var(--gray-color);
-  padding-bottom: 40px;
-  margin-bottom: 60px;
+  padding-bottom: 80px;
+  margin: 60px auto;
 }
 .grayDiv{
   background-color: var(--light-gray-color);

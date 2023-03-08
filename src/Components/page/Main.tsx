@@ -1,8 +1,8 @@
 import React from 'react';
 import { siteName } from '../../App';
 import Title from '../Title';
-import SimpleSlider from './component/SimpleSlider';
-import MiniSlider from './component/MiniSlider';
+import SimpleSlider from './slider/SimpleSlider';
+import MiniSlider from './slider/MiniSlider';
 
 const Main = () => {
 	return (

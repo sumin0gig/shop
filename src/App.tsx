@@ -4,7 +4,7 @@ import './App.css';
 import AdminHeader from './Components/AdminHeader';
 import Footer from './Components/Footer';
 import Header from './Components/Header';
-import AdmPrd from './Components/page/AdmPrd';
+import AdmPrd from './Components/page/Adm/AdmPrd';
 import Info_pri from './Components/page/info/Info_pri';
 import Info_user from './Components/page/info/Info_user';
 import Join_step1 from './Components/page/Join_step1';
