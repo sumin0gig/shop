@@ -67,6 +67,7 @@ const Header = () => {
 					<li>악세사리</li>
 				</ul>
 			</div>
+			
 		</header>
 	);
 };

@@ -39,7 +39,7 @@ table{
 /* custom 설정 */
   /* div */
 .main{
-  margin-top: 150px!important;
+  margin-top: 170px!important;
   overflow: hidden;
 }
 .inner{
@@ -51,7 +51,7 @@ table{
   align-items: center;
 }
 .inDiv{
-  width: 100%;
+  width: 100%!important;
 }
 .commentbox{
   margin: 20px 5px;
@@ -68,7 +68,7 @@ table{
 }
 .underlineDiv{
   max-width: 1800px;
-  width: 100%;
+  width: 90%;
   border-bottom: 1px solid var(--gray-color);
   padding-bottom: 80px;
   margin: 60px auto;

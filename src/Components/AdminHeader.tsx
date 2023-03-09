@@ -3,8 +3,14 @@ import { siteName } from '../App';
 import './style/Header.css'
 import { Link } from 'react-router-dom';
 import { getCookie } from '../API/Cookie';
+import { titleH } from './Title';
 
 const AdminHeader = () => {
+  const onMove=(num:number)=>{
+    window.scrollTo(0,num)
+  }
+  console.log(titleH);
+  
   if(getCookie('userId')!=="admin") alert("잘못된 접근입니다.");
   return (
     <header>
@@ -15,7 +21,7 @@ const AdminHeader = () => {
         <li><Link to='/'> 홈페이지</Link></li>		
       </ul>
     </div>
-    <div className='head bottom'>
+    <div className='head middle'>
       <ul className='openUl'>
         <li>사이트 설정</li>
         {/*
@@ -36,6 +42,14 @@ const AdminHeader = () => {
         {/* 배너 눌렀을때 이동할 게시글 */}
         <li>고객센터 관리</li>
         {/* ? */}
+      </ul>
+    </div>
+    <div className='head middle gray'>
+      <ul className='openUl'>
+        <li> <span onClick={()=>onMove(0)}>상품 추가</span></li>
+        <li> <span onClick={()=>onMove(200)}>상품 삭제</span></li>
+        <li>BEST / NEW 상품 지정</li>
+        <li>상품 관리</li>
       </ul>
     </div>
   </header>

@@ -1,24 +1,81 @@
 .productDataDiv{
   padding: 20px;
-  margin: 10px;
+  margin: 30px 10px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   border: 1px solid var(--gray-color);
   background-color: #fff;
 }
+
+/* default */
 .productDataDiv input{
   width: 100%;
 }
-.productDataDiv >div{
-  width: 30%;
+.productDataDiv pre{
+  margin-left: 50px;
+  text-align: left;
 }
+.mainDiv pre, .productTitleDiv pre{
+  margin-left: 20px;
+}
+.productDataDiv.update >div{
+  width: 30%;
+  margin: 20px 0;
+}
+.miniImg{
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--gray-color);
+}
+
+/*  */
 .productDataDiv .mainProduct{
-  width: 100%;
-  height: auto;
+  width: 137px;
+  height: 137px;
+  border: 1px solid var(--gray-color);
+}
+.productDataDiv tr{
+  line-height: 30px;
+  border-bottom: 1px solid var(--light-gray-color);
+}
+.productDataDiv tr:nth-child(1){
+  border-bottom: 1px solid black;
+}
+
+.productDataDiv th,.productDataDiv td{
+  padding: 20px;
 }
 .productState{
   display: flex;
+  align-items: center;
+  width: 100%;
 }
-.productDataDiv pre{
-  margin-left: 20px;
+.productState > span{
+  width: 15%;
+  min-width: 120px;
+  font-weight: bold;
+  text-align: left;
+  padding: 0 20px;
+}
+.productState > div{
+  width: 85%;
+}
+
+/*  */
+.productTitleDiv{
+  margin: 20px 0;
+}
+.productImgDiv{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.productImgDiv .mainDiv{
+  width: 66%;
+}
+
+/*  */
+.productImgDivSet{
+  padding: 10px;
 }

@@ -21,6 +21,14 @@ header{
 	width: 50%;
 	margin: 0 auto;
 }
+.head.middle{
+	padding-bottom: 10px;
+	width: 65%;
+}
+.head.gray{
+	justify-content: center;
+	color: var(--gray-color);
+}
 .wrapper{
 	display: flex;
 	flex-flow: column wrap;

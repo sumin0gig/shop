@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../../API/api';
 import { setCookie } from '../../API/Cookie';
 import Title from '../Title';
@@ -29,8 +30,9 @@ const Join_step2 = () => {
 	const telChRef = useRef<HTMLInputElement>(null);
 	const refMove=(ref:React.RefObject<HTMLInputElement>)=>{
 		ref.current!.focus();
-		window.innerHeight=ref.current!.height
+		window.scrollTo(0,ref.current!.height)
 	}
+	let navigate=	useNavigate();
 
 	const minYear= new Date().getFullYear()-14
 	const [formdata,setFormData]=useState<formDataType>({
@@ -99,6 +101,7 @@ const Join_step2 = () => {
 		}else{
 			axios.post(`${API_URL}/join`,formdata)
 			setCookie("username",formdata.name)
+			navigate("/join/3");
 		}
 	}
 	const onIdCheck= (e:React.MouseEvent<HTMLButtonElement>) =>{

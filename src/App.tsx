@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AdminFooter from './Components/AdminFooter';
 import AdminHeader from './Components/AdminHeader';
 import Footer from './Components/Footer';
 import Header from './Components/Header';
@@ -26,8 +27,8 @@ function App() {
         <Route path='/login' element={<><Header/><Login/><Footer/></>}/>
         <Route path='/logout' element={<Logout/>}/>
 
-        <Route path='/admin' element={<AdminHeader/>}/>
-        <Route path='/admin/product' element={<><AdminHeader/><AdmPrd/></>}/>
+        <Route path='/admin' element={<><AdminHeader/><AdminFooter/></>}/>
+        <Route path='/admin/product' element={<><AdminHeader/><AdmPrd/><AdminFooter/></>}/>
 
         <Route path='/info/user' element={<Info_user/>}/>
         <Route path='/info/pri' element={<Info_pri/>}/>

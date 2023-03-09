@@ -6,11 +6,9 @@ const Logout = () => {
   removeCookie('userPw')
   alert("로그아웃되었습니다.")
   window.history.back()
-  return (
-    <div>
-      
-    </div>
-  );
+  return(
+    <></>
+  )
 };
 
 export default Logout;
