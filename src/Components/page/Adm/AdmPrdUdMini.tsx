@@ -15,7 +15,7 @@ const AdmPrdUdMini = ({onChange,num,Img}:{
           <input type="text" onChange={onChange} name={num===0?`p_annImg`:`p_mainMiniImg${num}`} value={Img?Img:""} />
         </div>
       </div>
-        <pre>{num===0?"상세화면에서 출력되는 상세설명 이미지":"상세화면에서 출력되는 미니 이미지, 없을 시 공란"}</pre>
+        <pre>{num===0?"상세화면에서 출력되는 상세설명 이미지":"상세화면에서 출력되는 미니 이미지"}</pre>
     </div>
   );
 };

@@ -14,6 +14,7 @@ import Join_step3 from './Components/page/Join_step3';
 import Login from './Components/page/Login';
 import Logout from './Components/page/Logout';
 import Main from './Components/page/Main';
+import ProductList from './Components/page/ProductList';
 
 export const siteName:string= "logo";
 function App() {
@@ -21,6 +22,9 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<><Header/><Main/><Footer/></>}/>
+        <Route path='/outer' element={<><Header/><ProductList cate={"아우터"}/><Footer/></>}/>
+
+
         <Route path='/join/1' element={<><Header/><Join_step1/><Footer/></>}/>
         <Route path='/join/2' element={<><Header/><Join_step2/><Footer/></>}/>
         <Route path='/join/3' element={<><Header/><Join_step3/><Footer/></>}/>

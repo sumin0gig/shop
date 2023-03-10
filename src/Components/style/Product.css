@@ -1,0 +1,26 @@
+ul.items{
+  display: flex;
+  flex-wrap: wrap;
+}
+ul.items > li{
+  width: 25%;
+  padding: 20px;
+}
+.item-image{
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  border: 1px solid gray;
+}
+.item-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.item-content .subject{
+  color: var(--gray-color);
+}
+.item-content .info{
+  display: inline;
+}

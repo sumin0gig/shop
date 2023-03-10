@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { API_URL } from '../../../API/api';
 import { getThunk, productDataType } from '../../../modules/getDataReducer';
+import AdmPrdBtn from './AdmPrdBtn';
 import AdmPrdUdMini from './AdmPrdUdMini';
 
 const AdmPrdUpdate = ({d,module}:{d:productDataType,module:string}) => {
@@ -50,6 +51,12 @@ const AdmPrdUpdate = ({d,module}:{d:productDataType,module:string}) => {
     setPrdData({
       ...prdData,
       [name]:value
+    })
+  }
+  const clickBtn=(value:string)=>{
+    setPrdData({
+      ...prdData,
+      p_category:value
     })
   }
   return (
@@ -126,16 +133,23 @@ const AdmPrdUpdate = ({d,module}:{d:productDataType,module:string}) => {
           <div className='productState'>
             <span>카테고리</span>
             <div>
-              <input type="text" onChange={onChange} name='p_category' value={prdData.p_category} />
+              <AdmPrdBtn name='아우터' prdData={prdData} clickBtn={clickBtn}/>
+              <AdmPrdBtn name='상의' prdData={prdData} clickBtn={clickBtn}/>
+              <AdmPrdBtn name='원피스' prdData={prdData} clickBtn={clickBtn}/>
+              <AdmPrdBtn name='스커트' prdData={prdData} clickBtn={clickBtn}/>
+              <AdmPrdBtn name='팬츠' prdData={prdData} clickBtn={clickBtn}/>
+              <AdmPrdBtn name='가방' prdData={prdData} clickBtn={clickBtn}/>
+              <AdmPrdBtn name='신발' prdData={prdData} clickBtn={clickBtn}/>
+              <AdmPrdBtn name='악세사리' prdData={prdData} clickBtn={clickBtn}/>
             </div>
           </div>
-          <pre>아우터 상의 원피스 스커트 팬츠 가방 신발 악세사리</pre>
         </div>
         <div>
           <div className='productState'>
             <span>BEST<br />상품지정</span>
-            <div>
-              <input type="text" onChange={onChange} name='p_isbest' value={prdData.p_isbest} />
+            <div className='radioBox'>
+              Y<input type="radio" onChange={onChange} name='p_isbest' checked={prdData.p_isbest==="Y"?true:false} value="Y"/>
+              N<input type="radio" onChange={onChange} name='p_isbest' checked={prdData.p_isbest==="N"?true:false} value="N"/>
             </div>
           </div>
           <pre>BEST상품으로 지정합니다.</pre>
@@ -143,8 +157,9 @@ const AdmPrdUpdate = ({d,module}:{d:productDataType,module:string}) => {
         <div>
           <div className='productState'>
             <span>NEW<br />상품지정</span>
-            <div>
-              <input type="text" onChange={onChange} name='p_isnew' value={prdData.p_isnew} />
+            <div className='radioBox'>
+              Y<input type="radio" onChange={onChange} name='p_isnew' checked={prdData.p_isnew==="Y"?true:false} value="Y" />
+              N<input type="radio" onChange={onChange} name='p_isnew' checked={prdData.p_isnew==="N"?true:false} value="N" />
             </div>
           </div>
           <pre>신상품으로 지정합니다.</pre>

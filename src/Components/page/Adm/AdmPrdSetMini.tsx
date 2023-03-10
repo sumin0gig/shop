@@ -5,6 +5,7 @@ import { API_URL } from '../../../API/api';
 import { getThunk, patchThunk, productDataType } from '../../../modules/getDataReducer';
 
 const AdmPrdSetMini = ({d,module}:{d:productDataType,module:string}) => {
+  // PrdSet의Btn 
   const dispatch=useDispatch()
 
   let isData={
@@ -46,19 +47,19 @@ const AdmPrdSetMini = ({d,module}:{d:productDataType,module:string}) => {
       {module==="del"?
       <td>
         <div>
-          <button onClick={()=>onClickDel(d.p_no?d.p_no:0)}>삭제</button>
+          <button onClick={()=>onClickDel(d.p_no?d.p_no:0)} className="default">삭제</button>
         </div>
       </td>
       :
       <>
       <td>
         <div>
-          {d.p_isbest} <button onClick={onClickBEST}>변경</button>
+          {d.p_isbest} <button onClick={onClickBEST} className="check">변경</button>
         </div>
       </td>
       <td>
         <div>
-          {d.p_isnew} <button onClick={onClickNEW}>변경</button>
+          {d.p_isnew} <button onClick={onClickNEW} className="check">변경</button>
         </div>
       </td>
       </>

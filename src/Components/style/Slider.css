@@ -8,51 +8,24 @@
 }
 .miniSliderImg .miniImg{
   margin: 0 20px;
-  height: 10vw;
+  height: 647px;
+  width: auto;
   background-color: orange;
   border-radius: 20px;
+  overflow: hidden;
+  position: relative;
 }
+.slick-slide img{
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
 .info{
   padding: 20px 30px;
 }
 p.name{
   color: #878787;
 }
-.priceDiv{
-  border-bottom: 1px solid black;
-  padding: 10px 0;
-  display: grid;
-  align-items: end;
-  justify-content: start;
-  grid-template-areas: 
-  "saleprice salePro"
-  "price salePro";
-}
-.priceDiv s.saleprcie{
-  grid-area: saleprice;
-}
-.priceDiv p.price{
-  grid-area: price;
-  font-size: 20px;
-  font-weight: bold;
-  padding-right: 10px;
-}
-.priceDiv p.salePro{
-  grid-area: salePro;
-  font-size: 22px;
-  font-weight: bold;
-  color: var(--hover-color);
-}
-.info .icons{
-  float: right;
-  display: inline-flex;
-}
-.info .icons > p{
-  padding: 10px;
-  color: var(--gray-color);
-  cursor: pointer;
-  transition: .5s;
-}
-.info .icons > p:hover{
-  color: black;
-}
+
+

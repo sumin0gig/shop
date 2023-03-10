@@ -9,7 +9,7 @@
 }
 
 /* default */
-.productDataDiv input{
+.productDataDiv input:not([type="radio"]){
   width: 100%;
 }
 .productDataDiv pre{
@@ -52,14 +52,19 @@
   width: 100%;
 }
 .productState > span{
-  width: 15%;
-  min-width: 120px;
+  width: 10%;
+  min-width: 105px;
   font-weight: bold;
   text-align: left;
   padding: 0 20px;
 }
 .productState > div{
-  width: 85%;
+  width: 90%;
+}
+.productState .radioBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*  */

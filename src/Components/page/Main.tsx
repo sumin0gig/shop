@@ -3,8 +3,14 @@ import { siteName } from '../../App';
 import Title from '../Title';
 import SimpleSlider from './slider/SimpleSlider';
 import MiniSlider from './slider/MiniSlider';
+import { useSelector } from 'react-redux';
+import { rootState } from '../../modules';
+import { useDispatch } from 'react-redux';
+import { getThunk } from '../../modules/getDataReducer';
 
 const Main = () => {
+	const dispatch= useDispatch()
+	dispatch(getThunk())
 	return (
 		<>
 		<div className='main'>

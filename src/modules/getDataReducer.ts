@@ -62,6 +62,18 @@ async (dispatch: Dispatch) => {
     alert(e);
   }
 };
+export const getSomeThunk=(isSearch:string):any=>
+async (dispatch: Dispatch) => {
+  dispatch({type:LOADING})
+  try{
+    const params= isSearch
+    const response= await axios.get(`${API_URL}/admin/product/some/${isSearch}`);
+    const data= response.data;
+    dispatch({type:GET_PRODUCT, payload:data})
+  }catch(e){
+    alert(e);
+  }
+}
 
 // 초기값 지정 
 const initialState={

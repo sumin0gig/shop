@@ -57,7 +57,7 @@ const Header = () => {
 					<li>신상</li>
 				</ul>
 				<ul className='openUl'>
-					<li>아우터</li>
+					<li><Link to={"/outer"}>아우터</Link></li>
 					<li>상의</li>
 					<li>원피스</li>
 					<li>스커트</li>
