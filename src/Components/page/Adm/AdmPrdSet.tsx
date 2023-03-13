@@ -20,6 +20,7 @@ const AdmPrdSet = ({module}:{module:string}) => {
           <th>삭제</th>:
           <>
           <th>BEST 지정</th>
+          <th>BEST 번호 지정</th>
           <th>NEW 지정</th>          
           </>
           }

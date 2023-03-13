@@ -155,7 +155,7 @@ const Join_step2 = () => {
 								<p className='id_check_p'></p>
 							</td>
 							<td>
-								<button className='check' onClick={onIdCheck}>중복확인</button>
+								<button className='default white' onClick={onIdCheck}>중복확인</button>
 							</td>
 						</tr>
 						<tr>
@@ -188,7 +188,7 @@ const Join_step2 = () => {
 								<p className='tel_check_p'></p>
 							</td>
 							<td>
-								<button className='check' onClick={onTelCheck}>휴대폰 인증</button>
+								<button className='default white' onClick={onTelCheck}>휴대폰 인증</button>
 							</td>
 						</tr>
 						<tr>

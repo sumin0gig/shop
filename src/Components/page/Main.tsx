@@ -3,8 +3,6 @@ import { siteName } from '../../App';
 import Title from '../Title';
 import SimpleSlider from './slider/SimpleSlider';
 import MiniSlider from './slider/MiniSlider';
-import { useSelector } from 'react-redux';
-import { rootState } from '../../modules';
 import { useDispatch } from 'react-redux';
 import { getThunk } from '../../modules/getDataReducer';
 
@@ -17,7 +15,7 @@ const Main = () => {
 			<Title title={`주목해야할 ${siteName}소식`} center={true}/>
 			<SimpleSlider/>
 			<div className='inner'>
-				<Title title='추천 상품'/>
+				<Title title='BEST 10'/>
 				<div className='inDiv'>
 					<MiniSlider/>
 				</div>

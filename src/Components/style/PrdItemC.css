@@ -1,0 +1,11 @@
+#detail{
+  width: 100%;
+}
+.detail-top{
+  display: flex;
+  margin-bottom: 100px;
+}
+.detail-top .left, .detail-top .right{
+  width: 50%;
+  margin: 30px;
+}

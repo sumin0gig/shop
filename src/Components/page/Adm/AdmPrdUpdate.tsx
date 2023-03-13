@@ -5,6 +5,7 @@ import { API_URL } from '../../../API/api';
 import { getThunk, productDataType } from '../../../modules/getDataReducer';
 import AdmPrdBtn from './AdmPrdBtn';
 import AdmPrdUdMini from './AdmPrdUdMini';
+import { Link } from 'react-router-dom';
 
 const AdmPrdUpdate = ({d,module}:{d:productDataType,module:string}) => {
   const [prdData,setPrdData]=useState({
@@ -23,7 +24,6 @@ const AdmPrdUpdate = ({d,module}:{d:productDataType,module:string}) => {
     p_mainMiniImg2:d.p_mainMiniImg2,
     p_mainMiniImg3:d.p_mainMiniImg3,
     p_mainMiniImg4:d.p_mainMiniImg4,
-    p_mainMiniImg5:d.p_mainMiniImg5,
     p_annImg:d.p_annImg,
   });
   const dispatch= useDispatch();
@@ -64,7 +64,9 @@ const AdmPrdUpdate = ({d,module}:{d:productDataType,module:string}) => {
       <div className='left'>
 
         <div className='productImgDiv'>
+          <Link to={d.p_no?`/product/view/${d.p_no}`:""}>
           <img src={prdData.p_mainImg} alt="main_IMG" className='mainProduct'/>
+          </Link>
           <div className='mainDiv'>
             <h3>메인 사진</h3>
             <input type="text" onChange={onChange} name='p_mainImg' value={prdData.p_mainImg}/>  
@@ -101,14 +103,14 @@ const AdmPrdUpdate = ({d,module}:{d:productDataType,module:string}) => {
       </div>
       <div className='center'>
 
-        <div>
+        {/* <div>
           <div className='productState'>
             <span>색상</span>
             <div>
               <input type="text" onChange={onChange} name='p_color' value={prdData.p_color?prdData.p_color:""} />
             </div>
           </div>
-          <pre>상품의 색상,로 이어 작성합니다.</pre>
+          <pre>상품의 색상. 색상을 추가하고 싶을 시 </pre>
 
         </div>
         <div>
@@ -128,7 +130,7 @@ const AdmPrdUpdate = ({d,module}:{d:productDataType,module:string}) => {
             </div>
           </div>
           <pre>상품 재고</pre>
-        </div>
+        </div> */}
         <div>
           <div className='productState'>
             <span>카테고리</span>
@@ -170,7 +172,6 @@ const AdmPrdUpdate = ({d,module}:{d:productDataType,module:string}) => {
         {<AdmPrdUdMini onChange={onChange} num={2} Img={prdData.p_mainMiniImg2}/>}
         {<AdmPrdUdMini onChange={onChange} num={3} Img={prdData.p_mainMiniImg3}/>}
         {<AdmPrdUdMini onChange={onChange} num={4} Img={prdData.p_mainMiniImg4}/>}
-        {<AdmPrdUdMini onChange={onChange} num={5} Img={prdData.p_mainMiniImg5}/>}
         {<AdmPrdUdMini onChange={onChange} num={0} Img={prdData.p_annImg}/>}
       </div>
 

@@ -29,3 +29,46 @@ p.name{
 }
 
 
+.sliderinner{
+  margin-bottom: 100px;
+  position: relative;
+}
+.slick-dots.slick-thumb {
+  position: absolute;
+  bottom: -130px;
+  left: 50%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  transform: translate(-50%);
+}
+
+.slick-prev:before,.slick-next:before,button::before{
+  display: none;
+}
+.slick-slider .slick-slide img{
+  position: relative;
+  transform: none;
+  left: 0;
+}
+.slick-dots li{
+  width: auto;
+  height: auto;
+}
+.slick-dots li button{
+  filter: grayscale(100%);
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+}
+.slick-dots li button > img{
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.slick-dots li.slick-active button{
+  filter: grayscale(0);
+}
+.slick-list{
+  height: auto;
+}

@@ -51,6 +51,9 @@
 }
 
 .AdmHeader .searchOpener{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   left: -50px;
   top:100px;

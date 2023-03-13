@@ -28,6 +28,10 @@
   height: 30px;
   border: 1px solid var(--gray-color);
 }
+.productDataDiv select{
+  width: 100%;
+  text-align: center;
+}
 
 /*  */
 .productDataDiv .mainProduct{

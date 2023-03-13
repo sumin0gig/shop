@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import '../../style/Slider.css';
 
 export default class SimpleSlider extends Component {
+  // banner 슬라이더
   render() {
     const settings = {
       dots: true,
@@ -18,8 +19,8 @@ export default class SimpleSlider extends Component {
     return (
       <div className="sliderDiv">
         <Slider {...settings}>
-          {data.map(d=>
-            <div className="sliderImg">
+          {data.map((d,i)=>
+            <div className="sliderImg" key={i}>
               <h3>{d}</h3>
             </div>
             )}

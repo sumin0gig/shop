@@ -15,6 +15,10 @@ import Login from './Components/page/Login';
 import Logout from './Components/page/Logout';
 import Main from './Components/page/Main';
 import ProductList from './Components/page/ProductList';
+import BestList from './Components/page/BestList';
+import ProductItem from './Components/page/ProductItem';
+import NewList from './Components/page/NewList';
+import AdmMember from './Components/page/Adm/AdmMember';
 
 export const siteName:string= "logo";
 function App() {
@@ -22,8 +26,17 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<><Header/><Main/><Footer/></>}/>
-        <Route path='/outer' element={<><Header/><ProductList cate={"아우터"}/><Footer/></>}/>
-
+        <Route path='/product/best' element={<><Header/><BestList/><Footer/></>}/>
+        <Route path='/product/new' element={<><Header/><NewList/><Footer/></>}/>
+        <Route path='/product/cate1' element={<><Header/><ProductList cate={"아우터"}/><Footer/></>}/>
+        <Route path='/product/cate2' element={<><Header/><ProductList cate={"상의"}/><Footer/></>}/>
+        <Route path='/product/cate3' element={<><Header/><ProductList cate={"원피스"}/><Footer/></>}/>
+        <Route path='/product/cate4' element={<><Header/><ProductList cate={"스커트"}/><Footer/></>}/>
+        <Route path='/product/cate5' element={<><Header/><ProductList cate={"팬츠"}/><Footer/></>}/>
+        <Route path='/product/cate6' element={<><Header/><ProductList cate={"가방"}/><Footer/></>}/>
+        <Route path='/product/cate7' element={<><Header/><ProductList cate={"신발"}/><Footer/></>}/>
+        <Route path='/product/cate8' element={<><Header/><ProductList cate={"악세사리"}/><Footer/></>}/>
+        <Route path='/product/view/:no' element={<><Header/><ProductItem/><Footer/></>}/>
 
         <Route path='/join/1' element={<><Header/><Join_step1/><Footer/></>}/>
         <Route path='/join/2' element={<><Header/><Join_step2/><Footer/></>}/>
@@ -33,6 +46,7 @@ function App() {
 
         <Route path='/admin' element={<><AdminHeader/><AdminFooter/></>}/>
         <Route path='/admin/product' element={<><AdminHeader/><AdmPrd/><AdminFooter/></>}/>
+        <Route path='/admin/member' element={<><AdminHeader/><AdmMember/><AdminFooter/></>}/>
 
         <Route path='/info/user' element={<Info_user/>}/>
         <Route path='/info/pri' element={<Info_pri/>}/>

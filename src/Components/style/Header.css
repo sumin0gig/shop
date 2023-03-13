@@ -12,6 +12,7 @@ header{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding: 20px 0;
 }
 .head.top{
 	height: 70px;
@@ -81,6 +82,7 @@ header{
 }
 .wrapper .opener > table td{
 	padding:0 5px;
+	text-align: left;
 }
 .headList{
 	color: var(--gray-color);

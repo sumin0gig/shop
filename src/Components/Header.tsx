@@ -4,38 +4,18 @@ import { siteName } from '../App';
 import './style/Header.css'
 import { Link } from 'react-router-dom';
 import { getCookie } from '../API/Cookie';
+import HeaderOpener from './HeaderOpener';
+import { useDispatch } from 'react-redux';
+import { getBestList } from '../modules/getDataReducer';
 
 
 const Header = () => {
-	const onClick=()=>{
-		document.querySelector(".opener")?.classList.toggle("opener-on");
-	}
+	const dispatch= useDispatch();
+	dispatch(getBestList())
 	return (
 		<header>
 			<div className='head top'>
-				<ul className='wrapper'>
-					<div className='wrap'>
-						{/* 여기에 링크 반복적으로 돌아가며 출력 */}
-						<div>
-							<a href="링크" target="_self">
-								<strong>번호.</strong> 이름							
-							</a>
-						</div>
-						<button className='wrapbtn' onClick={onClick}>▼</button>
-					</div>
-					<div className='opener'>
-						<table>
-							<caption>인기 검색어</caption>
-							<tbody>
-								{/* 여기에 tr 반복적으로 돌아가며 출력 */}
-								<tr>
-									<td><strong>번호.</strong>이름</td>
-									<td>NEW</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</ul>
+				<HeaderOpener/>
 				<h1><Link to='/'>{siteName}</Link></h1>
 				<ul className='headList openUl'>
 					{!getCookie('userId')?
@@ -53,18 +33,18 @@ const Header = () => {
 			</div>
 			<div className='head bottom'>
 				<ul className='openUl'>
-					<li>BEST</li>
-					<li>신상</li>
+					<li><Link to={"/product/best"}>BEST</Link></li>
+					<li><Link to={"/product/new"}>NEW</Link></li>
 				</ul>
 				<ul className='openUl'>
-					<li><Link to={"/outer"}>아우터</Link></li>
-					<li>상의</li>
-					<li>원피스</li>
-					<li>스커트</li>
-					<li>팬츠</li>
-					<li>가방</li>
-					<li>신발</li>
-					<li>악세사리</li>
+					<li><Link to={"/product/cate1"}>아우터</Link></li>
+					<li><Link to={"/product/cate2"}>상의</Link></li>
+					<li><Link to={"/product/cate3"}>원피스</Link></li>
+					<li><Link to={"/product/cate4"}>스커트</Link></li>
+					<li><Link to={"/product/cate5"}>팬츠</Link></li>
+					<li><Link to={"/product/cate6"}>가방</Link></li>
+					<li><Link to={"/product/cate7"}>신발</Link></li>
+					<li><Link to={"/product/cate8"}>악세사리</Link></li>
 				</ul>
 			</div>
 			

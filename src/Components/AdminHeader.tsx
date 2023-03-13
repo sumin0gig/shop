@@ -36,8 +36,7 @@ const AdminHeader = () => {
       </ul>
       <ul className='openUl'>
         <li><Link to='/admin/product'> 상품 관리</Link></li>
-        {/* 베스트, 신상, 일반상품추가제거 */}
-        <li>고객 관리</li>
+        <li><Link to='/admin/member'> 고객 관리</Link></li>
         {/* 고객 리스트 */}
         <li>메인배너 관리</li>
         {/* 메인 배너로 출력할 이미지 등록 제거, 링크걸기^^ */}
