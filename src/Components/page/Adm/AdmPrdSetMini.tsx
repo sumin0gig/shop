@@ -62,7 +62,8 @@ const AdmPrdSetMini = ({d,module}:{d:productDataType,module:string}) => {
       <>
       <td>
         <div>
-          {d.p_isbest} <button onClick={onClickBEST} className="check">변경</button>
+          <span>{d.p_isbest}</span>
+          <button onClick={onClickBEST} className="check">변경</button>
         </div>
       </td>
       <td>
@@ -86,7 +87,8 @@ const AdmPrdSetMini = ({d,module}:{d:productDataType,module:string}) => {
       </td>
       <td>
         <div>
-          {d.p_isnew} <button onClick={onClickNEW} className="check">변경</button>
+        <span>{d.p_isnew}</span>
+        <button onClick={onClickNEW} className="check">변경</button>
         </div>
       </td>
       </>

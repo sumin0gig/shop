@@ -50,6 +50,12 @@ p.name{
   position: relative;
   transform: none;
   left: 0;
+  background-size: cover;
+  width: auto;
+  height: 100%;
+}
+.slick-slider .slick-slide .miniImg > img{
+  transform: translateX(-25%);
 }
 .slick-dots li{
   width: auto;

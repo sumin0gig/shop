@@ -7,11 +7,13 @@ const { createStandardAction } = deprecated;
 // 1.액션타입 선언
 const LOADING='getDataReducer/LOADING';
 const GET_PRODUCT='getDataReducer/GET_PRODUCT';
+const GET_PRODUCT_AMOUNT='getDataReducer/GET_PRODUCT_AMOUNT';
 const GET_BEST_PRODUCT='getDataReducer/GET_BEST_PRODUCT';
 
 // 2. 액션생성 함수
 export const nowLoading=createStandardAction(LOADING)<boolean>
 export const getproduct=createStandardAction(GET_PRODUCT)<productDataType>
+export const getproductamount=createStandardAction(GET_PRODUCT_AMOUNT)<prodcutAmountDataType>
 export const getbestproduct=createStandardAction(GET_BEST_PRODUCT)<productDataType>
 // 타입지정
 export type productDataType={
@@ -19,9 +21,6 @@ export type productDataType={
   p_name:string,
   p_price:number,
   p_saleprice:number|null,
-  p_color?:string|null,
-  p_size?:string|null,
-  p_amount:number,
   p_category:string,
   p_isbest:string,
   p_isbestNo?:string,
@@ -33,10 +32,19 @@ export type productDataType={
   p_mainMiniImg4?:string|null,
   p_annImg?:string|null,
 }
+export type prodcutAmountDataType={
+  pa_no?:number,
+  p_no:number,
+  pa_color:string,
+  pa_size:string,
+  pa_amount:string
+}
+
 export type stateType = {
   loading: boolean;
   product: productDataType[]|null;
-  bestproduct: []|null
+  product_amount: prodcutAmountDataType[]|null;
+  bestproduct: []|null;
 };
 
 // <----thunk 함수
@@ -134,6 +142,43 @@ async(dispatch:Dispatch)=>{
     const response= await axios.get(`${API_URL}/product/view/${no}`);
     const data= response.data;
     dispatch({type:GET_PRODUCT,payload:data});
+    const amountResponse= await axios.get(`${API_URL}/product/view/amount/${no}`);
+    const amountData= amountResponse.data;
+    dispatch({type:GET_PRODUCT_AMOUNT, payload:amountData})
+  }catch(e){
+    alert(e);
+  }
+}
+
+export const getAmountThunk=():any=>
+async(dispatch:Dispatch)=>{
+  try{
+    const response= await axios.get(`${API_URL}/admin/product/view/amount`);
+    const data= response.data;
+    dispatch({type:GET_PRODUCT_AMOUNT, payload:data});
+  }catch(e){
+    alert(e);
+  }
+}
+export const patchAmount=(
+  no:number,
+  formData:{pa_amount: string;plus_amount: string;}
+  ):any=>
+async(dispatch:Dispatch)=>{
+  dispatch({type:LOADING})
+  try{
+    axios.patch(`${API_URL}/admin/product/amount/${no}`,formData)
+    dispatch(getAmountThunk())
+  }catch(e){
+    alert(e);
+  }
+}
+export const delAmount=(no:number):any=>
+async(dispatch:Dispatch)=>{
+  dispatch({type:LOADING})
+  try{
+    axios.delete(`${API_URL}/admin/product/amount/${no}`)
+    dispatch(getAmountThunk())
   }catch(e){
     alert(e);
   }
@@ -147,6 +192,7 @@ async(dispatch:Dispatch)=>{
 const initialState={
   loading: false,
 	product: null,
+  product_amount:null,
   bestproduct:null
 }
 
@@ -163,6 +209,12 @@ function getDataReducer(state: stateType = initialState,action: any) {
         ...state,
         loading: false,
         product: action.payload
+      }
+    case GET_PRODUCT_AMOUNT:
+      return{
+        ...state,
+        loading: false,
+        product_amount: action.payload
       }
     case GET_BEST_PRODUCT:
       return{

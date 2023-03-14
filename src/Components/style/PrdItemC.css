@@ -9,3 +9,21 @@
   width: 50%;
   margin: 30px;
 }
+.detail-top .selectDiv table{
+  width: 100%;
+  height: 600px;
+}
+.detail-top .selectDiv tbody{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.detail-top .selectDiv th{
+  padding: 0 30px;
+}
+.detail-photo{
+  display: flex;
+  flex-direction: column;
+}

@@ -32,6 +32,10 @@
   width: 100%;
   text-align: center;
 }
+.productDataDiv span{
+  display: inline-block;
+  width: 10px;
+}
 
 /*  */
 .productDataDiv .mainProduct{
@@ -47,6 +51,9 @@
   border-bottom: 1px solid black;
 }
 
+.productDataDiv .cate-box > .productState{
+  min-height: 200px;
+}
 .productDataDiv th,.productDataDiv td{
   padding: 20px;
 }
@@ -54,6 +61,7 @@
   display: flex;
   align-items: center;
   width: 100%;
+  min-height: 80px;
 }
 .productState > span{
   width: 10%;
@@ -87,4 +95,29 @@
 /*  */
 .productImgDivSet{
   padding: 10px;
+}
+
+/*  */
+.productAmount{
+  width: 100%;
+  text-align: center;
+}
+
+.productAmount .img{ width: 100px}
+.productAmount .cate{ width: 100px;}
+.productAmount .name{ width: 300px; text-align: left;}
+.productAmount .size{ width: 200px;}
+.productAmount .color{ width: 200px;}
+.productAmount .amount{ width: 100px;}
+.productAmount .add{ width: 200px;}
+.amount-box{
+  display: flex;
+  min-width: 200px
+}
+.prdocutAdd{
+  display: none;
+  transition: .5s;
+}
+.prdocutAdd.open{
+  display: block;
 }

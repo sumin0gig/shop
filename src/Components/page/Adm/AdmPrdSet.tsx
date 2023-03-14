@@ -8,7 +8,6 @@ type datatype=productDataType[]|null
 const AdmPrdSet = ({module}:{module:string}) => {
   const data:datatype= useSelector((state:rootState)=>state.getDataReducer.product);
 
-  if(!data) return<div>no data</div>
   return (
       <table className='productDataDiv'>
         <tbody>

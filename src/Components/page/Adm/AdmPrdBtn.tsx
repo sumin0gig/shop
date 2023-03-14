@@ -2,13 +2,12 @@ import React from 'react';
 import { productDataType } from '../../../modules/getDataReducer';
 
 const AdmPrdBtn = ({prdData,name,clickBtn}:{
+  // 카테고리 버튼 출력
   prdData: {p_name: string;
   p_pricemin: number;
   p_pricemax: number;
   p_salepricemin: number;
   p_salepricemax: number;
-  p_amountmin: number;
-  p_amountmax: number;
   p_category: string;
   p_isbest: string;
   p_isnew: string;

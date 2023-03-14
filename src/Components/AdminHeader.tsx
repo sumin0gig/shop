@@ -1,18 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { siteName } from '../App';
 import './style/Header.css'
 import { Link } from 'react-router-dom';
 import { getCookie } from '../API/Cookie';
-import { useDispatch } from 'react-redux';
-import { getThunk } from '../modules/getDataReducer';
 
 const AdminHeader = () => {
-  const dispatch=useDispatch();
-  useEffect(()=>{
-    dispatch(getThunk())
-  },[dispatch])
-  
-
   if(getCookie('userId')!=="admin") alert("잘못된 접근입니다.");
   return (
     <>

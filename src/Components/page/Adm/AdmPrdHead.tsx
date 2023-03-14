@@ -15,8 +15,6 @@ const AdmPrdHead = () => {
     p_pricemax:999990,
     p_salepricemin:0,
     p_salepricemax:999990,
-    p_amountmin:0,
-    p_amountmax:5000,
     p_category:"",
     p_isbest:"",
     p_isnew:"",
@@ -55,8 +53,9 @@ const AdmPrdHead = () => {
       <ul className='AdmHeader'>
       <li> <span onClick={()=>onTitleMove("no1")}>상품 추가</span></li>
       <li> <span onClick={()=>onTitleMove("no2")}>상품 삭제</span></li>
-      <li> <span onClick={()=>onTitleMove("no3")}>BEST / NEW 상품 지정</span></li>
-      <li> <span onClick={()=>onTitleMove("no4")}>상품 관리</span></li>
+      <li> <span onClick={()=>onTitleMove("no3")}>수량 설정</span></li>
+      <li> <span onClick={()=>onTitleMove("no4")}>BEST / NEW 지정</span></li>
+      <li> <span onClick={()=>onTitleMove("no5")}>상품 설정</span></li>
     </ul>
     <div className='AdmHeader right'>
       <form action="" className='searchForm' onSubmit={onSubmit}>
@@ -79,13 +78,6 @@ const AdmPrdHead = () => {
                 <td className='searchprice'>
                   <input type="number" name='p_salepricemin' onChange={onChange} value={prdData.p_salepricemin}/> 원 이상~
                   <input type="number" name='p_salepricemax' onChange={onChange} value={prdData.p_salepricemax}/> 원 이하
-                </td>
-              </tr>
-              <tr>
-                <th>수량</th>
-                <td className='searchprice'>
-                  <input type="number" name='p_amountmin' onChange={onChange} value={prdData.p_amountmin} /> 개 이상~
-                  <input type="number" name='p_amountmax' onChange={onChange} value={prdData.p_amountmax} /> 개 이하
                 </td>
               </tr>
               <tr>

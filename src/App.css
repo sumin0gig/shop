@@ -74,6 +74,9 @@ table{
   padding-bottom: 80px;
   margin: 60px auto;
 }
+.underlineDiv pre{
+  padding: 20px;
+}
 .grayDiv{
   background-color: var(--light-gray-color);
   border-radius: 10px;
@@ -127,6 +130,14 @@ button.mini{
   border: none;
   outline: none;
   cursor: pointer;
+}
+button.noneBg{
+  background: none;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: var(--gray-color);
 }
 
   /* text */

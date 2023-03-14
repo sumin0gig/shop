@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { API_URL } from '../../../API/api';
 import { getThunk, productDataType } from '../../../modules/getDataReducer';
@@ -13,9 +13,6 @@ const AdmPrdUpdate = ({d,module}:{d:productDataType,module:string}) => {
     p_name:d.p_name,
     p_price:d.p_price,
     p_saleprice:d.p_saleprice,
-    p_color:d.p_color,
-    p_size:d.p_size,
-    p_amount:d.p_amount,
     p_category:d.p_category,
     p_isbest:d.p_isbest,
     p_isnew:d.p_isnew,
@@ -26,6 +23,23 @@ const AdmPrdUpdate = ({d,module}:{d:productDataType,module:string}) => {
     p_mainMiniImg4:d.p_mainMiniImg4,
     p_annImg:d.p_annImg,
   });
+  useEffect(()=>{
+    setPrdData({
+      p_no:d.p_no,
+      p_name:d.p_name,
+      p_price:d.p_price,
+      p_saleprice:d.p_saleprice,
+      p_category:d.p_category,
+      p_isbest:d.p_isbest,
+      p_isnew:d.p_isnew,
+      p_mainImg:d.p_mainImg,
+      p_mainMiniImg1:d.p_mainMiniImg1,
+      p_mainMiniImg2:d.p_mainMiniImg2,
+      p_mainMiniImg3:d.p_mainMiniImg3,
+      p_mainMiniImg4:d.p_mainMiniImg4,
+      p_annImg:d.p_annImg,
+    })
+  },[d])
   const dispatch= useDispatch();
 
   const onSubmit=()=>{
@@ -59,6 +73,7 @@ const AdmPrdUpdate = ({d,module}:{d:productDataType,module:string}) => {
       p_category:value
     })
   }
+  
   return (
     <form className='productDataDiv update' onSubmit={onSubmit}>
       <div className='left'>
@@ -102,36 +117,7 @@ const AdmPrdUpdate = ({d,module}:{d:productDataType,module:string}) => {
         </div>
       </div>
       <div className='center'>
-
-        {/* <div>
-          <div className='productState'>
-            <span>색상</span>
-            <div>
-              <input type="text" onChange={onChange} name='p_color' value={prdData.p_color?prdData.p_color:""} />
-            </div>
-          </div>
-          <pre>상품의 색상. 색상을 추가하고 싶을 시 </pre>
-
-        </div>
-        <div>
-          <div className='productState'>
-            <span>사이즈</span>
-            <div>
-              <input type="text" onChange={onChange} name='p_size' value={prdData.p_size?prdData.p_size:""} />
-            </div>
-          </div>
-          <pre>상품의 사이즈,로 이어 작성합니다.</pre>
-        </div>
-        <div>
-          <div className='productState'>
-            <span>수량</span>
-            <div>
-              <input type="number" onChange={onChange} name='p_amount' value={prdData.p_amount} />
-            </div>
-          </div>
-          <pre>상품 재고</pre>
-        </div> */}
-        <div>
+        <div className='cate-box'>
           <div className='productState'>
             <span>카테고리</span>
             <div>

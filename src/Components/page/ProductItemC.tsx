@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { rootState } from '../../modules';
-import { productDataType } from '../../modules/getDataReducer';
+import { prodcutAmountDataType, productDataType } from '../../modules/getDataReducer';
 import "../style/PrdItemC.css"
 import ProductSlider from './slider/ProductSlider';
 
-const ProductItemC = () => {
+const ProductItemC =  () => {
+  window.scrollTo(0,0)
   const date= new Date().toLocaleDateString();  
-  const data:productDataType[]=  useSelector((state:rootState)=>state.getDataReducer.product)
+  const data:productDataType[]= useSelector((state:rootState)=>state.getDataReducer.product)
+  const amountdata:prodcutAmountDataType[] =  useSelector((state:rootState)=>state.getDataReducer.product_amount)
+  let color:string[]= [];
+  if(amountdata){
+    amountdata.map(a=> color.push(a.pa_color))
+  }
+  let set= new Set(color);
+  let colorData=[...set];
+  
+  const [formdata,setFormData]=useState({
+    color:"",
+    size:""
+  })
+
+  const onClick=(name:string,value:string)=>{
+    setFormData({
+      ...formdata,
+      [name]:value
+    })
+  }
+  if(!data||!amountdata) return <div>no data</div>
   return (
     <>
       {data&&data.map((d:productDataType,i:number)=>
@@ -22,12 +43,12 @@ const ProductItemC = () => {
               <div className="priceDiv">
                 {d.p_saleprice?
                 <>
-                  <s className='saleprice'>{d.p_saleprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</s>
-                  <p className="salePro">{Math.trunc(d.p_price/d.p_saleprice*100)}%</p>
+                  <s className='saleprice'>{d.p_saleprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</s>
+                  <p className="salePro">{100-Math.trunc(d.p_price/d.p_saleprice*100)}%</p>
                 </>
                 :null
                 }
-                <p className='price'>{d.p_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
+                <p className='price'>{d.p_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
               </div>
             </div>
             <div className="selectDiv">
@@ -44,13 +65,23 @@ const ProductItemC = () => {
                     <tr>
                       <th>색상</th>
                       <td>
-                        {d.p_color}
+                        {amountdata&&colorData.map((a,i)=>
+                         <button key={i} className={formdata.color===a? "default" :"default white"} type='button'
+                         onClick={()=>onClick("color",a)}>
+                          {a}
+                        </button> 
+                        )}
                       </td>
                     </tr>
                     <tr>
                       <th>사이즈</th>
                       <td>
-                        {d.p_size}
+                        {amountdata&&amountdata.filter(a=>a.pa_color===formdata.color).map((a,i)=>
+                         <button key={i} className={formdata.size===a.pa_size? "default" :"default white"} type='button'
+                         onClick={()=>onClick("size",a.pa_size)}>
+                          {a.pa_size}
+                        </button> 
+                        )}
                       </td>
                     </tr>
                     <tr>

@@ -27,7 +27,7 @@ const ListItems = () => {
                 <div className="priceDiv">
                   {d.p_saleprice?<s className="saleprice">{d.p_saleprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</s>:null}
                   <p className="price">{d.p_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
-                  {d.p_saleprice?<p className="salePro">{Math.trunc(d.p_price/d.p_saleprice*100)}%</p>:null}
+                  {d.p_saleprice?<p className="salePro">{100-Math.trunc(d.p_price/d.p_saleprice*100)}%</p>:null}
                 </div>
                 <div className="icons">
                   <p><FaHeart/></p>
