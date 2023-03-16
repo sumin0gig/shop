@@ -1,11 +1,12 @@
 import React from 'react';
 import { siteName } from '../App';
 import './style/Header.css'
+import './style/AdmHeader.css'
 import { Link } from 'react-router-dom';
 import { getCookie } from '../API/Cookie';
 
-const AdminHeader = () => {
-  if(getCookie('userId')!=="admin") alert("잘못된 접근입니다.");
+const AdminHeader = () => {  
+  if(getCookie('authority')<1||getCookie('authority')===undefined) alert("잘못된 접근입니다.");
   return (
     <>
     <header>
@@ -30,7 +31,7 @@ const AdminHeader = () => {
         <li><Link to='/admin/product'> 상품 관리</Link></li>
         <li><Link to='/admin/member'> 고객 관리</Link></li>
         {/* 고객 리스트 */}
-        <li>메인배너 관리</li>
+        <li><Link to='/admin/banner'>메인배너 관리</Link></li>
         {/* 메인 배너로 출력할 이미지 등록 제거, 링크걸기^^ */}
         <li>게시글 관리</li>
         {/* 배너 눌렀을때 이동할 게시글 */}

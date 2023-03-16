@@ -77,10 +77,18 @@ const ProductItemC =  () => {
                       <th>사이즈</th>
                       <td>
                         {amountdata&&amountdata.filter(a=>a.pa_color===formdata.color).map((a,i)=>
-                         <button key={i} className={formdata.size===a.pa_size? "default" :"default white"} type='button'
+                        <div className='balloon-div'>
+                          <button key={i} className={formdata.size===a.pa_size? "default" :"default white"} type='button'
                          onClick={()=>onClick("size",a.pa_size)}>
                           {a.pa_size}
-                        </button> 
+                          </button> 
+                            {Number(a.pa_amount)<=10?
+                            <div className='balloon'>
+                              수량임박!
+                            </div>
+                            :null 
+                            }
+                        </div>
                         )}
                       </td>
                     </tr>

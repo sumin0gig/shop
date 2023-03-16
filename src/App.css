@@ -1,9 +1,18 @@
 :root{
   --main-color:black;
-  --hover-color:blue;
   --gray-color:#9c9c9c;
   --light-gray-color:#E2E2E2;
+  --sale-color:blue;
+  --new-color:yellow;
+  --hot-color:red;
 }
+
+@keyframes blink-effect {
+  50% {
+    opacity: 0;
+  }
+}
+
 /* default 설정 */
 *{margin: 0; padding: 0; box-sizing: border-box;}
 li{list-style: none;}
@@ -23,6 +32,8 @@ input[type="radio"]{
   height: 17px;
   min-width: 0;
 }
+input:not([type="radio"]),select{width: 100%;}
+
 select{
   border: none;
   outline: none;
@@ -35,7 +46,6 @@ table{
   border-collapse: collapse;
 	margin: 10px;
 }
-
 
 /* custom 설정 */
   /* div */
@@ -54,13 +64,14 @@ table{
 .inDiv{
   width: 100%!important;
 }
+.none{
+  display: none;
+}
 .commentbox{
   margin: 20px 5px;
 }
 .commentbox .subtitle{
-  font-weight: bold;
   border-bottom: 1px solid black;
-  padding: 10px 0;
 }
 .commentbox .mini{
   color: var(--gray-color);
@@ -74,7 +85,7 @@ table{
   padding-bottom: 80px;
   margin: 60px auto;
 }
-.underlineDiv pre{
+.underlineDiv > pre{
   padding: 20px;
 }
 .grayDiv{
@@ -85,6 +96,57 @@ table{
   height: auto;
 }
 
+.new, .best{
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+  margin: 2px;
+}
+.new{
+  background-color: var(--new-color)!important;
+}
+.new::after{
+  border-color: var(--new-color) transparent!important;
+}
+.best{
+  background-color: var(--hot-color)!important;
+}
+.best::after{
+  border-color: var(--hot-color) transparent!important;
+}
+
+    /* div-ballon */
+.balloon-div{
+  position: relative;
+}
+.balloon{
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  padding: 5px;
+  line-height: 35px;
+  border-radius: 7px;
+  width: 70%;
+  text-align: center;
+  transform: translateX(-50%);
+  background-color: var(--main-color);
+  color: #fff;
+  animation: blink-effect 1s step-end infinite;
+}
+.balloon::after{
+  content: '';
+  display: block;
+  position: absolute;
+  border-style: solid;
+  border-width: 8px 8px 0;
+  border-color: var(--main-color) transparent;
+  width: 0;
+  top: 40px;
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 /* ul */
 .openUl{
 	display: flex;
@@ -92,7 +154,7 @@ table{
 	align-items: center;
 }
 .openUl li{
-  margin-left: 20px;
+  margin: 0 10px;
 }
 
   /* btn */
@@ -152,6 +214,11 @@ h4{
   margin: 30px 0;
   width: 100%;
 }
+.subtitle{
+  font-weight: bold;
+  padding: 10px 0;
+  min-width: 60px;
+}
 pre{
 	font-size: 13px;
 	line-height: 160%;
@@ -191,7 +258,7 @@ pre{
   grid-area: salePro;
   font-size: 22px;
   font-weight: bold;
-  color: var(--hover-color);
+  color: var(--sale-color);
 }
 /* icons */
 .icons{

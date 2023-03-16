@@ -9,7 +9,7 @@ const AdmPrdSet = ({module}:{module:string}) => {
   const data:datatype= useSelector((state:rootState)=>state.getDataReducer.product);
 
   return (
-      <table className='productDataDiv'>
+      <table className='DataDiv'>
         <tbody>
         <tr>
           <th>제품</th>

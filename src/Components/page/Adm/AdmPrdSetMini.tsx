@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { API_URL } from '../../../API/api';
 import { getThunk, patchIsbestNo, patchThunk, productDataType } from '../../../modules/getDataReducer';

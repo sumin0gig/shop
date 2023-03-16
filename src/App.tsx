@@ -18,7 +18,10 @@ import ProductList from './Components/page/ProductList';
 import BestList from './Components/page/BestList';
 import ProductItem from './Components/page/ProductItem';
 import NewList from './Components/page/NewList';
-import AdmMember from './Components/page/Adm/AdmMember';
+import AdmMem from './Components/page/Adm/AdmMem';
+import IdSearch_step1 from './Components/page/IdSearch_step1';
+import PWSearch_step1 from './Components/page/PwSearch_step1';
+import AdmBann from './Components/page/Adm/AdmBann';
 
 export const siteName:string= "logo";
 function App() {
@@ -43,10 +46,13 @@ function App() {
         <Route path='/join/3' element={<><Header/><Join_step3/><Footer/></>}/>
         <Route path='/login' element={<><Header/><Login/><Footer/></>}/>
         <Route path='/logout' element={<Logout/>}/>
+        <Route path='/idSearch' element={<><Header/><IdSearch_step1/><Footer/></>}/>
+        <Route path='/pwSearch' element={<><Header/><PWSearch_step1/><Footer/></>}/>
 
         <Route path='/admin' element={<><AdminHeader/><AdminFooter/></>}/>
         <Route path='/admin/product' element={<><AdminHeader/><AdmPrd/><AdminFooter/></>}/>
-        <Route path='/admin/member' element={<><AdminHeader/><AdmMember/><AdminFooter/></>}/>
+        <Route path='/admin/member' element={<><AdminHeader/><AdmMem/><AdminFooter/></>}/>
+        <Route path='/admin/banner' element={<><AdminHeader/><AdmBann/><AdminFooter/></>}/>
 
         <Route path='/info/user' element={<Info_user/>}/>
         <Route path='/info/pri' element={<Info_pri/>}/>

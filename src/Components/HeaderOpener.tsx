@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 const HeaderOpener = () => {
 	const bestList =useSelector((state:rootState)=>state.getDataReducer.bestproduct)
-	console.log(bestList);
   
   const onClick=()=>{
 		document.querySelector(".opener")?.classList.toggle("opener-on");
@@ -34,7 +33,7 @@ const HeaderOpener = () => {
                       <strong>{i+1}. </strong>
                       <Link to={`/product/view/${li.p_no}`}>{li.p_name.length>6?li.p_name.slice(0,6)+"...":li.p_name}</Link>
                     </td>
-                    <td>{li.p_isnew==="Y"?"NEW":"HOT"}</td>
+                    <td>{li.p_isnew==="Y"?<div className='new'>NEW</div>:<div className='best'>HOT</div>}</td>
                   </tr>
                 )}
 							</tbody>

@@ -75,7 +75,7 @@ const AdmPrdUpdate = ({d,module}:{d:productDataType,module:string}) => {
   }
   
   return (
-    <form className='productDataDiv update' onSubmit={onSubmit}>
+    <form className='DataDiv update' onSubmit={onSubmit}>
       <div className='left'>
 
         <div className='productImgDiv'>

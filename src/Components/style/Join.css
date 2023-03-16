@@ -76,9 +76,7 @@
 	align-items: center;
 	margin: 30px 0;
 }
-.joinstepForm.mini input:not([type="radio"]),
-.joinstepForm.mini select{width: 100%;}
-.joinstepForm.mini .inputs{
+.inputs{
 	display: flex;
 	flex-flow: row nowrap;
 }

@@ -1,60 +1,22 @@
-.productDataDiv{
-  padding: 20px;
-  margin: 30px 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  border: 1px solid var(--gray-color);
-  background-color: #fff;
-}
 
-/* default */
-.productDataDiv input:not([type="radio"]){
-  width: 100%;
-}
-.productDataDiv pre{
-  margin-left: 50px;
-  text-align: left;
-}
-.mainDiv pre, .productTitleDiv pre{
-  margin-left: 20px;
-}
-.productDataDiv.update >div{
-  width: 30%;
-  margin: 20px 0;
-}
-.miniImg{
-  width: 30px;
-  height: 30px;
-  border: 1px solid var(--gray-color);
-}
-.productDataDiv select{
-  width: 100%;
-  text-align: center;
-}
-.productDataDiv span{
-  display: inline-block;
-  width: 10px;
-}
-
-/*  */
-.productDataDiv .mainProduct{
+/* product */
+.DataDiv .mainProduct{
   width: 137px;
   height: 137px;
   border: 1px solid var(--gray-color);
 }
-.productDataDiv tr{
+.DataDiv tr{
   line-height: 30px;
   border-bottom: 1px solid var(--light-gray-color);
 }
-.productDataDiv tr:nth-child(1){
+.DataDiv tr:nth-child(1){
   border-bottom: 1px solid black;
 }
 
-.productDataDiv .cate-box > .productState{
+.DataDiv .cate-box > .productState{
   min-height: 200px;
 }
-.productDataDiv th,.productDataDiv td{
+.DataDiv th,.DataDiv td{
   padding: 20px;
 }
 .productState{
@@ -115,9 +77,22 @@
   min-width: 200px
 }
 .prdocutAdd{
-  display: none;
+  height: 0;
+  overflow: hidden;
   transition: .5s;
+  border-bottom: none!important;
+}
+.prdocutAdd div{
+  height: 0;
+  overflow: hidden;
+}
+.prdocutAdd td{
+  padding: 0;
 }
 .prdocutAdd.open{
-  display: block;
+  height: 150px;
+  border-bottom: 1px solid var(--light-gray-color)!important;
+}
+.prdocutAdd.open div {
+  height: auto;
 }

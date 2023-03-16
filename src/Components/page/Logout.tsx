@@ -1,11 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { removeCookie } from "../../API/Cookie";
 
 const Logout = () => {
-  removeCookie('userId')
+  removeCookie('authority')
   removeCookie('userPw')
   alert("로그아웃되었습니다.")
-  window.history.back()
+  window.location.href="/";
   return(
     <></>
   )

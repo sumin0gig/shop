@@ -1,7 +1,5 @@
 import React , { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { rootState } from '../../../modules';
-import { getAmountThunk, getThunk, productDataType } from '../../../modules/getDataReducer';
+import { getAmountThunk } from '../../../modules/getDataReducer';
 import Title from '../../Title';
 import AdmPrdUpdate from './AdmPrdUpdate';
 import AdmPrdAmountSet from './AdmPrdAmountSet';
@@ -21,6 +19,7 @@ const AdmPrd = () => {
   },[dispatch])
   
   const initialState={
+    p_no:0,
     p_name:"",
     p_price:0,
     p_saleprice:0,

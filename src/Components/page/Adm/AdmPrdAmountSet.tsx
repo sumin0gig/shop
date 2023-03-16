@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getThunk } from '../../../modules/getDataReducer';
 import AdmPrdAmountSetMini from './AdmPrdAmountSetMini';
 
 const AdmPrdAmountSet = () => {
   const dispatch=useDispatch()
-  dispatch(getThunk())
+  useEffect(()=>{
+    dispatch(getThunk())
+  },[dispatch])
   return (
-    <div className='productDataDiv'>
+    <div className='DataDiv'>
       <AdmPrdAmountSetMini/>
     </div>
   );

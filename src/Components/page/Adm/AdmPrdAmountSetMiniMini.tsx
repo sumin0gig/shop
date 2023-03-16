@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React ,{ useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { API_URL } from '../../../API/api';
 import { delAmount, patchAmount, prodcutAmountDataType } from '../../../modules/getDataReducer';
 
 const AdmPrdAmountSetMiniMini = ({d}:{d:prodcutAmountDataType}) => {
@@ -29,7 +28,7 @@ const AdmPrdAmountSetMiniMini = ({d}:{d:prodcutAmountDataType}) => {
     dispatch(delAmount(no))
   }
   return (
-    <>
+    <tr>
       <td>{d.pa_size}</td>
       <td>{d.pa_color}</td>
       <td>{d.pa_amount}EA</td>
@@ -40,7 +39,7 @@ const AdmPrdAmountSetMiniMini = ({d}:{d:prodcutAmountDataType}) => {
       <td>
         <button type='button' className='noneBg' onClick={()=>onDel(d.pa_no!)}>X</button>
       </td>
-    </>
+    </tr>
   );
 };
 

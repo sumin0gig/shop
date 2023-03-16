@@ -18,13 +18,13 @@ const Header = () => {
 				<HeaderOpener/>
 				<h1><Link to='/'>{siteName}</Link></h1>
 				<ul className='headList openUl'>
-					{!getCookie('userId')?
+					{!getCookie('authority')?
 					<>
 					<li><Link to='/login'>로그인</Link></li>
 					<li><Link to='/join/1'>회원가입</Link></li>
 					</>:
 					<li><Link to='/logout'>로그아웃</Link></li>}
-					{getCookie('userId')==="admin"? <li><Link to='/admin'>관리자 페이지</Link></li>:<></>}
+					{getCookie('authority')>0? <li><Link to='/admin'>관리자 페이지</Link></li>:<></>}
 					<li>고객센터</li>
 					<li><FaUserAlt/></li>
 					<li><FaShoppingCart/></li>

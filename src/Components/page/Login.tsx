@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../../API/api';
 import { setCookie } from '../../API/Cookie';
+import { useDispatch } from 'react-redux';
+import { DEL_MEMBER } from '../../modules/getDataReducer';
 
 const Login = () => {
   const [loginData, setloginData]=useState({
@@ -26,17 +28,18 @@ const Login = () => {
     if(loginData.m_id===""||loginData.m_pw===""){
       alert("아이디와 비밀번호를 입력해주세요.")
     }else{
-      axios.get(`${API_URL}/login/${loginData.m_id}`)
+      axios.get(`${API_URL}/login/${JSON.stringify(loginData)}`)
       .then((result)=>{        
-        const {m_id, m_pw}=result.data[0]        
+        console.log(result);
+        const {m_id, m_pw,m_authority}=result.data[0];
         if(m_id){
-          if(m_pw!==loginData.m_pw){
+          if(m_pw===false){
             alert("비밀번호가 틀렸습니다.")
           }else{
             alert("로그인 되었습니다.")
             let expires= new Date();
-            expires.setMinutes(expires.getMinutes()+1);
-            setCookie('userId',m_id,{path:"/",expires});
+            expires.setMinutes(expires.getMinutes()+1440);
+            setCookie('authority',m_authority,{path:"/",expires});
             setCookie('userPw',m_pw,{path:"/",expires});
             window.history.back();
           }
@@ -46,6 +49,8 @@ const Login = () => {
       }).catch(e=>alert(e));
     }
   }
+  const dispatch=useDispatch()
+  dispatch({type:DEL_MEMBER})
   return (
 		<div className='main inner'>
       <div className='loginform'>
@@ -56,8 +61,8 @@ const Login = () => {
             <input type="password" placeholder='PW' onChange={onChange} name="m_pw"/>
           </div>
           <div className='loginSearch'>
-            <p>아이디 찾기</p>
-            <p>비밀번호 찾기</p>
+            <p><Link to="/idSearch">아이디 찾기</Link></p>
+            <p><Link to="/pwSearch">비밀번호 찾기</Link></p>
           </div>
           <button className='default'>로그인</button>
         </form>
