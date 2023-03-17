@@ -47,8 +47,8 @@ const AdmBannListC = ({b}:{b:bannerDataType}) => {
   }
   return (
     <tr>
-      <td>
-        <img src={`${API_URL}/upload/${formdata.b_img}`} alt={b.b_name} />
+      <td className='inputs'>
+        <img src={`${API_URL}/upload/banner/${formdata.b_img}`} className="miniImg" alt={b.b_name} />
         <input type="file" onChange={onChangeImage} name="b_img"/>
       </td>       
       <td>

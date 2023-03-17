@@ -7,6 +7,7 @@ import '../../style/Slider.css';
 import { useSelector } from "react-redux";
 import { rootState } from "../../../modules";
 import { Link } from "react-router-dom";
+import CartAdd from "../CartAdd";
 
 const MiniSlider=()=>{
   var settings = {
@@ -25,27 +26,27 @@ const MiniSlider=()=>{
     <Slider {...settings}>
       {data.map((d:any,i:number)=>
         <div key={i}>
-          
+          <Link to={`/product/view/${d.p_no}`}>
             <div className="miniSliderImg">
               <div className="miniImg">
                 <img src={d.p_mainImg} alt="" />
               </div>
             </div>
+          </Link> 
             <div>
-              <Link to={`/product/view/${d.p_no}`}>
               <div className="info">
-                <p className="name">{d.p_name}</p>
-                <div className="priceDiv">
-                  {d.p_saleprice?<s className="saleprice">{d.p_saleprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</s>:null}
-                  <p className="price">{d.p_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
-                  {d.p_saleprice?<p className="salePro">{100-Math.trunc(d.p_price/d.p_saleprice*100)}%</p>:null}
-                </div>
+                <Link to={`/product/view/${d.p_no}`}>
+                  <p className="name">{d.p_name}</p>
+                  <div className="priceDiv">
+                    {d.p_saleprice?<s className="saleprice">{d.p_saleprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</s>:null}
+                    <p className="price">{d.p_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
+                    {d.p_saleprice?<p className="salePro">{100-Math.trunc(d.p_price/d.p_saleprice*100)}%</p>:null}
+                  </div>
+                </Link>
                 <div className="icons">
                   <p><FaHeart/></p>
-                  <p><FaShoppingCart/></p>
                 </div>
               </div>
-              </Link>
             </div>
           
         </div>

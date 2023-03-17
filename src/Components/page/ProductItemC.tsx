@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { getCookie } from '../../API/Cookie';
 import { rootState } from '../../modules';
 import { prodcutAmountDataType, productDataType } from '../../modules/getDataReducer';
 import "../style/PrdItemC.css"
+import CartAdd from './CartAdd';
 import ProductSlider from './slider/ProductSlider';
 
 const ProductItemC =  () => {
@@ -21,13 +24,27 @@ const ProductItemC =  () => {
     color:"",
     size:""
   })
-
+  
   const onClick=(name:string,value:string)=>{
     setFormData({
       ...formdata,
       [name]:value
     })
   }
+  const navigate= useNavigate();
+  const onCartAdd=()=>{
+
+    if(getCookie("userNo")===undefined){
+      alert("로그인 후 이용할 수 있습니다.")
+      navigate("/login");
+    }else if(!formdata.color||!formdata.size){
+      alert("사이즈와 색상을 선택해주세요.")
+    }else{
+      CartAdd(formdata,data);
+    }
+  }
+
+  
   if(!data||!amountdata) return <div>no data</div>
   return (
     <>
@@ -64,7 +81,7 @@ const ProductItemC =  () => {
                     </tr>
                     <tr>
                       <th>색상</th>
-                      <td>
+                      <td className='btns'>
                         {amountdata&&colorData.map((a,i)=>
                          <button key={i} className={formdata.color===a? "default" :"default white"} type='button'
                          onClick={()=>onClick("color",a)}>
@@ -75,10 +92,10 @@ const ProductItemC =  () => {
                     </tr>
                     <tr>
                       <th>사이즈</th>
-                      <td>
+                      <td className='btns'>
                         {amountdata&&amountdata.filter(a=>a.pa_color===formdata.color).map((a,i)=>
-                        <div className='balloon-div'>
-                          <button key={i} className={formdata.size===a.pa_size? "default" :"default white"} type='button'
+                        <div className='balloon-div' key={i}>
+                          <button className={formdata.size===a.pa_size? "default" :"default white"} type='button'
                          onClick={()=>onClick("size",a.pa_size)}>
                           {a.pa_size}
                           </button> 
@@ -94,7 +111,7 @@ const ProductItemC =  () => {
                     </tr>
                     <tr>
                       <td colSpan={2}>
-                        <button className='default white'>장바구니</button>
+                        <button className='default white' onClick={onCartAdd}>장바구니</button>
                         <button className='default'>구매하기</button>
                       </td>
                     </tr>

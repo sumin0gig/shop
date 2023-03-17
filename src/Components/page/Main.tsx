@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { siteName } from '../../App';
 import Title from '../Title';
 import SimpleSlider from './slider/SimpleSlider';
 import MiniSlider from './slider/MiniSlider';
 import { useDispatch } from 'react-redux';
-import { getThunk } from '../../modules/getDataReducer';
+import { getBanner, getThunk } from '../../modules/getDataReducer';
 
 const Main = () => {
 	const dispatch= useDispatch()
-	dispatch(getThunk())
+	useEffect(()=>{
+		dispatch(getThunk())
+		dispatch(getBanner())		
+	},[dispatch])
 	return (
 		<>
 		<div className='main'>
-			<Title title={`주목해야할 ${siteName}소식`} center={true}/>
 			<SimpleSlider/>
 			<div className='inner'>
 				<Title title='BEST 10'/>

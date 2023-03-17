@@ -2,9 +2,9 @@
   --main-color:black;
   --gray-color:#9c9c9c;
   --light-gray-color:#E2E2E2;
-  --sale-color:blue;
-  --new-color:yellow;
-  --hot-color:red;
+  --sale-color:rgb(146,101,238);
+  --new-color:rgb(143,157,247);
+  --hot-color:rgb(255,153,149);
 }
 
 @keyframes blink-effect {
@@ -14,7 +14,12 @@
 }
 
 /* default 설정 */
-*{margin: 0; padding: 0; box-sizing: border-box;}
+*{
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: "Poppins","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  color: #2c2c2c;
+}
+
 li{list-style: none;}
 a{text-decoration: none; color: inherit;}
 img{vertical-align: top;}
@@ -50,7 +55,7 @@ table{
 /* custom 설정 */
   /* div */
 .main{
-  margin-top: 170px!important;
+  margin-top: 140px!important;
   overflow: hidden;
 }
 .inner{
@@ -95,7 +100,14 @@ table{
   padding: 20px;
   height: auto;
 }
-
+.inputs{
+	display: flex;
+	flex-flow: row nowrap;
+}
+.btns{
+  display: flex;
+  flex-flow: row wrap;
+}
 .new, .best{
   border-radius: 5px;
   color: #fff;
@@ -245,16 +257,16 @@ pre{
   "saleprice salePro"
   "price salePro";
 }
-.priceDiv s.saleprcie{
+s.saleprcie{
   grid-area: saleprice;
 }
-.priceDiv p.price{
+p.price{
   grid-area: price;
   font-size: 20px;
   font-weight: bold;
   padding-right: 10px;
 }
-.priceDiv p.salePro{
+p.salePro{
   grid-area: salePro;
   font-size: 22px;
   font-weight: bold;

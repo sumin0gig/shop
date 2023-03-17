@@ -4,6 +4,7 @@ import { removeCookie } from "../../API/Cookie";
 
 const Logout = () => {
   removeCookie('authority')
+  removeCookie('userNo')
   removeCookie('userPw')
   alert("로그아웃되었습니다.")
   window.location.href="/";

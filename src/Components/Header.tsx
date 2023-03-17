@@ -27,7 +27,7 @@ const Header = () => {
 					{getCookie('authority')>0? <li><Link to='/admin'>관리자 페이지</Link></li>:<></>}
 					<li>고객센터</li>
 					<li><FaUserAlt/></li>
-					<li><FaShoppingCart/></li>
+					<li><Link to='/cart'><FaShoppingCart/></Link></li>
 					<li><FaHeart/></li>				
 				</ul>
 			</div>

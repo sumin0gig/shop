@@ -1,8 +1,6 @@
 import axios from "axios";
 import { Dispatch } from "redux";
 import { API_URL } from "../API/api";
-import { deprecated } from "typesafe-actions";
-const { createStandardAction } = deprecated;
 
 // 1.액션타입 선언
 const LOADING='getDataReducer/LOADING';

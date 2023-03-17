@@ -31,7 +31,7 @@ const HeaderOpener = () => {
                   <tr key={i}>
                     <td>
                       <strong>{i+1}. </strong>
-                      <Link to={`/product/view/${li.p_no}`}>{li.p_name.length>6?li.p_name.slice(0,6)+"...":li.p_name}</Link>
+                      <Link to={`/product/view/${li.p_no}`}>{li.p_name.length>5?li.p_name.slice(0,5)+"...":li.p_name}</Link>
                     </td>
                     <td>{li.p_isnew==="Y"?<div className='new'>NEW</div>:<div className='best'>HOT</div>}</td>
                   </tr>

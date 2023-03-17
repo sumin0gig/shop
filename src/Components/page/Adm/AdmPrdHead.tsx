@@ -59,9 +59,13 @@ const AdmPrdHead = () => {
     </ul>
     <div className='AdmHeader right'>
       <form action="" className='searchForm' onSubmit={onSubmit}>
-        <h2>상품 검색</h2>
           <table className='table'>
             <tbody>
+              <tr>
+                <td colSpan={2}>
+                  <h2 className='center'>상품 검색</h2>
+                </td>
+              </tr>
               <tr>
                 <th>제품명</th>
                 <td><input type="text" name='p_name' value={prdData.p_name} onChange={onChange}/></td>
@@ -98,7 +102,7 @@ const AdmPrdHead = () => {
               </tr>
               <tr>
                 <th>BEST 상품</th>
-                <td>
+                <td className='inputs'>
                   ALL<input type="checkbox" onClick={()=>clickCheckBtn("p_isbest","")} defaultChecked={prdData.p_isbest===""?true:false}/>
                   Y<input type="checkbox" onClick={()=>clickCheckBtn("p_isbest","Y")} defaultChecked={prdData.p_isbest==="Y"?true:false}/>
                   N<input type="checkbox" onClick={()=>clickCheckBtn("p_isbest","N")} defaultChecked={prdData.p_isbest==="N"?true:false}/>
@@ -106,17 +110,19 @@ const AdmPrdHead = () => {
               </tr>
               <tr>
                 <th>NEW 상품</th>
-                <td>
+                <td className='inputs'>
                   ALL<input type="checkbox" name='p_isnew' onClick={()=>clickCheckBtn("p_isnew","")} defaultChecked={prdData.p_isnew===""?true:false}/>
                   Y<input type="checkbox" name='p_isnew' onClick={()=>clickCheckBtn("p_isnew","Y")} defaultChecked={prdData.p_isnew==="Y"?true:false}/>
                   N<input type="checkbox" name='p_isnew' onClick={()=>clickCheckBtn("p_isnew","N")} defaultChecked={prdData.p_isnew==="N"?true:false}/>
                 </td>
               </tr>
               <tr>
+                <td colSpan={2} className='center'>
+                  <button className='default'>검색</button>
+                </td>
               </tr>
             </tbody>
           </table>
-          <button className='default'>검색</button>
       </form>  
       <div className='searchOpener' onClick={onClick}>
         <BsSearch/>

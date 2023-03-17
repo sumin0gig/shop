@@ -7,11 +7,10 @@ import { useSelector } from "react-redux";
 import { rootState } from "../../../modules";
 import { bannerDataType } from "../../../modules/getDataReducer";
 import { API_URL } from "../../../API/api";
+import { Link } from "react-router-dom";
 
-// 이거 함수형으로 변경
-export default class SimpleSlider extends Component {
+const SimpleSlider =()=> {
   // banner 슬라이더
-  render() {
     const settings = {
       dots: true,
       autoplay: true,
@@ -26,11 +25,12 @@ export default class SimpleSlider extends Component {
         <Slider {...settings}>
           {banners&&banners.map((d,i)=>
             <div className="sliderImg" key={i}>
-              <h3><img src={`${API_URL}/upload/${d.b_img}`} alt="" /></h3>
+              <Link to={d.b_link}><img src={`${API_URL}/upload/banner/${d.b_img}`} alt="" /></Link>
             </div>
             )}
         </Slider>
       </div>
-    );
-  }
+    ); 
 }
+
+export default SimpleSlider;

@@ -35,12 +35,15 @@
   height: 100vh;
   width: 450px;
 }
+.AdmHeader.right td{
+  padding: 10px 0;
+}
 .AdmHeader.right .table{
   border-spacing: 30px;
+  margin: 30px;
 }
 .AdmHeader .searchprice{
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
 }
 .AdmHeader .searchOpener{

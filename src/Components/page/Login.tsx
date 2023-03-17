@@ -31,7 +31,7 @@ const Login = () => {
       axios.get(`${API_URL}/login/${JSON.stringify(loginData)}`)
       .then((result)=>{        
         console.log(result);
-        const {m_id, m_pw,m_authority}=result.data[0];
+        const {m_id,m_no,m_pw,m_authority}=result.data[0];
         if(m_id){
           if(m_pw===false){
             alert("비밀번호가 틀렸습니다.")
@@ -40,6 +40,7 @@ const Login = () => {
             let expires= new Date();
             expires.setMinutes(expires.getMinutes()+1440);
             setCookie('authority',m_authority,{path:"/",expires});
+            setCookie('userNo',m_no,{path:"/",expires});
             setCookie('userPw',m_pw,{path:"/",expires});
             window.history.back();
           }

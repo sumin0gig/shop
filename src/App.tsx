@@ -22,6 +22,7 @@ import AdmMem from './Components/page/Adm/AdmMem';
 import IdSearch_step1 from './Components/page/IdSearch_step1';
 import PWSearch_step1 from './Components/page/PwSearch_step1';
 import AdmBann from './Components/page/Adm/AdmBann';
+import Cart from './Components/page/Cart';
 
 export const siteName:string= "logo";
 function App() {
@@ -29,6 +30,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<><Header/><Main/><Footer/></>}/>
+        <Route path='/cart' element={<><Header/><Cart/><Footer/></>}/>
+
         <Route path='/product/best' element={<><Header/><BestList/><Footer/></>}/>
         <Route path='/product/new' element={<><Header/><NewList/><Footer/></>}/>
         <Route path='/product/cate1' element={<><Header/><ProductList cate={"아우터"}/><Footer/></>}/>
