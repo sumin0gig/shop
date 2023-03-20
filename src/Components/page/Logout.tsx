@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { removeCookie } from "../../API/Cookie";
 
 const Logout = () => {
+  removeCookie('userName')
   removeCookie('authority')
   removeCookie('userNo')
   removeCookie('userPw')

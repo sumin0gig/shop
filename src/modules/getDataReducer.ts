@@ -20,6 +20,7 @@ export type memberDataType={
   m_tel_1:number,
   m_tel_2:number,
   m_tel_3:number,
+  m_addr:string;
   m_birth:number,
   m_sms_check:boolean,
   m_mail_add1:string,

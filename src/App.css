@@ -17,6 +17,8 @@
 *{
   margin: 0; padding: 0; box-sizing: border-box;
   font-family: "Poppins","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+body{
   color: #2c2c2c;
 }
 
@@ -37,7 +39,7 @@ input[type="radio"]{
   height: 17px;
   min-width: 0;
 }
-input:not([type="radio"]),select{width: 100%;}
+input:not([type="radio"],[type="checkbox"]),select{width: 100%;}
 
 select{
   border: none;

@@ -8,7 +8,7 @@ import { getCookie } from '../../API/Cookie';
 
 
 const Join_step3 = () => {
-  const username=getCookie("username")
+  const username=getCookie("userName")
   return (
 		<div className='main inner minheight300'>
 			<Title title={"회원가입"} center={true}/>

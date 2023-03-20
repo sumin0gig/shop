@@ -5,10 +5,7 @@ import { BsSearch } from "react-icons/bs";
 import { useDispatch } from 'react-redux';
 import { getSomeThunk } from '../../../modules/getDataReducer';
 
-
-
 const AdmPrdHead = () => {
-  
   const [prdData,setPrdData]=useState({
     p_name:"",
     p_pricemin:0,

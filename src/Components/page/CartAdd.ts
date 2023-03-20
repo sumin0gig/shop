@@ -7,6 +7,7 @@ import { productDataType } from '../../modules/getDataReducer';
 
 const CartAdd = (
   formdata:{
+  pa_no: number;
   color: string;
   size: string;
   },
@@ -15,6 +16,7 @@ const CartAdd = (
   const dataset:cartDataType={
     m_no:getCookie("userNo"),
     p_no:data[0].p_no,
+    pa_no:formdata.pa_no,
     cp_name:data[0].p_name,
     c_saleprice:data[0].p_saleprice,
     c_price:data[0].p_price,

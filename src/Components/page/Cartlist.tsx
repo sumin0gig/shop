@@ -1,16 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { rootState } from '../../modules';
-import { cartDataType } from '../../modules/getCartReducer';
-import { Link } from 'react-router-dom';
+import { cartDataType, delCartThunk, patchCartThunk } from '../../modules/getCartReducer';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+export let selectProduct: { c_no: number; p_no: number; pa_no: number; c_price: number; c_saleprice: number; c_amount: number; }[] =[];
+export let p_noArr:number[]=[]
 
 const Cartlist = () => {
   const data:cartDataType[]=useSelector((state:rootState)=>state.getCartReducer.cart);
-  let selectProduct: { c_price: number; c_saleprice: number; c_amount: number; }[] =[];
   const onChange=(e:React.ChangeEvent<HTMLInputElement>,c:cartDataType,i:number)=>{
     if(e.target.checked){
       selectProduct[i]=
       {
+        c_no: c.c_no||0,
+        p_no: c.p_no,
+        pa_no: c.pa_no,
         c_price: c.c_price,
         c_saleprice: c.c_saleprice||0,
         c_amount:c.c_amount
@@ -18,13 +24,17 @@ const Cartlist = () => {
       totalSetting()
     }else{
       selectProduct[i]={
+        c_no: 0,
+        p_no: 0,
+        pa_no: 0,
         c_price: 0,
         c_saleprice: 0,
         c_amount: 0
       }
       totalSetting()
     }
-    console.log()
+    p_noArr= selectProduct.filter(d=>d.pa_no>0).map(d=>d.pa_no);
+    
   }
   const [total,setTotal]= useState({
     len:0,
@@ -44,14 +54,29 @@ const Cartlist = () => {
     )
   }
   const onClickAll=()=>{
-    document.querySelectorAll("")
+
   }
-  
+  const dispatch= useDispatch();
+  const navigate= useNavigate();
+  const onClickDel=()=>{
+    const data=selectProduct.filter(i=>i).map(i=>i.c_no);
+    dispatch(delCartThunk(data));
+    window.location.reload();    
+  }
+
+  const onClick=()=>{
+    const patchData=data.filter(d=>p_noArr.includes(d.pa_no));
+    dispatch(patchCartThunk(patchData))
+    navigate("/cart/credit")
+  }
   return (
     <>
     <h4>선택한 상품 {total.len} 개</h4>
-    <button className='noneBg' onClick={onClickAll}>전체 선택</button>
-    <table className='cartTale'>
+    <div className="inputs">
+      <button className='noneBg' onClick={onClickAll}>전체 선택</button>
+      <button className='noneBg' onClick={onClickDel}>선택 삭제</button>
+    </div>
+    <table className='cartTable'>
       <tbody>
         <tr>
           <th>check</th>
@@ -101,7 +126,10 @@ const Cartlist = () => {
         <h4>
           총 결제 예상금액 {(total.price+delivery).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원
         </h4>
-        </div>
+      </div>
+      <div>
+          <button className='default' onClick={onClick}>주문하기</button>
+      </div>
     </>
   );
 };

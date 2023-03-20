@@ -21,13 +21,15 @@ const ProductItemC =  () => {
   let colorData=[...set];
   
   const [formdata,setFormData]=useState({
+    pa_no:0,
     color:"",
     size:""
   })
   
-  const onClick=(name:string,value:string)=>{
+  const onClick=(name:string,value:string,no:number)=>{
     setFormData({
       ...formdata,
+      pa_no:no||0,
       [name]:value
     })
   }
@@ -45,7 +47,6 @@ const ProductItemC =  () => {
   }
 
   
-  if(!data||!amountdata) return <div>no data</div>
   return (
     <>
       {data&&data.map((d:productDataType,i:number)=>
@@ -84,7 +85,7 @@ const ProductItemC =  () => {
                       <td className='btns'>
                         {amountdata&&colorData.map((a,i)=>
                          <button key={i} className={formdata.color===a? "default" :"default white"} type='button'
-                         onClick={()=>onClick("color",a)}>
+                         onClick={()=>onClick("color",a,0)}>
                           {a}
                         </button> 
                         )}
@@ -96,7 +97,7 @@ const ProductItemC =  () => {
                         {amountdata&&amountdata.filter(a=>a.pa_color===formdata.color).map((a,i)=>
                         <div className='balloon-div' key={i}>
                           <button className={formdata.size===a.pa_size? "default" :"default white"} type='button'
-                         onClick={()=>onClick("size",a.pa_size)}>
+                         onClick={()=>onClick("size",a.pa_size,a.pa_no!)}>
                           {a.pa_size}
                           </button> 
                             {Number(a.pa_amount)<=10?

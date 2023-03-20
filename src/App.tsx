@@ -23,6 +23,8 @@ import IdSearch_step1 from './Components/page/IdSearch_step1';
 import PWSearch_step1 from './Components/page/PwSearch_step1';
 import AdmBann from './Components/page/Adm/AdmBann';
 import Cart from './Components/page/Cart';
+import CartCredit from './Components/page/CartCredit';
+import CartSuccess from './Components/page/CartSuccess';
 
 export const siteName:string= "logo";
 function App() {
@@ -31,6 +33,8 @@ function App() {
       <Routes>
         <Route path='/' element={<><Header/><Main/><Footer/></>}/>
         <Route path='/cart' element={<><Header/><Cart/><Footer/></>}/>
+        <Route path='/cart/credit' element={<><Header/><CartCredit/><Footer/></>}/>
+        <Route path='/cart/success' element={<><Header/><CartSuccess/><Footer/></>}/>
 
         <Route path='/product/best' element={<><Header/><BestList/><Footer/></>}/>
         <Route path='/product/new' element={<><Header/><NewList/><Footer/></>}/>

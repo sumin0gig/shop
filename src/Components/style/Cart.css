@@ -4,21 +4,75 @@
   width: 100%;
 }
 
-.cartTale{
+.cartTable{
   width: 100%;
 }
-.cartTale tr{
+.cartTable tr{
   border-bottom: 1px solid var(--light-gray-color);
 }
 
-.cartTale tr:nth-child(1){
+.cartTable tr:nth-child(1){
   background-color: var(--light-gray-color);
   height: 60px;
   text-align: center;
 }
-.cartTale tr td img{
+.cartTable tr td img{
   width: 100px;
   height: 100px;
   border: 1px solid var(--gray-color);
   margin: 10px;
+}
+
+.creditDiv{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.creditDiv .left{
+  padding: 10px;
+
+  width: 70%;
+}
+.creditDiv .right{
+  width: 30%;
+  padding: 10px;
+}
+.creditDiv ul{
+  padding-left: 20px;
+}
+.creditDiv ul li{
+  line-height: 35px;
+}
+.creditDiv input{
+  margin: 0;
+  padding-left: 0;
+}
+.creditDiv .right ul{
+  margin: 10px;
+  padding: 0 10px;
+  color: var(--gray-color);
+  position: relative;
+}
+.creditDiv .right ul::before{
+  position: absolute;
+  top: 50%;
+  left: -5px;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 80%;
+  background-color: var(--light-gray-color);
+  content: "";
+}
+.creditDiv .right ul li{
+  display: flex;
+  justify-content: space-between;
+}
+.cartSuccess_div{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin-bottom: 30px;
+  width: 100%;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--light-gray-color);
 }
