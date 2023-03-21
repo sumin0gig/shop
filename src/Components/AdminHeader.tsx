@@ -7,11 +7,12 @@ import { getCookie } from '../API/Cookie';
 
 const AdminHeader = () => {  
   if(getCookie('authority')<1||getCookie('authority')===undefined) alert("잘못된 접근입니다.");
+  window.scrollTo(0,0)
   return (
     <>
     <header>
     <div className='head top'>
-      <h1><Link to='/admin'>{siteName} 관리자 페이지</Link></h1>
+      <h1><Link to='/admin/product'>{siteName} 관리자 페이지</Link></h1>
       <ul className='headList openUl'>
         <li><Link to='/logout'>로그아웃</Link></li>
         <li><Link to='/'> 홈페이지</Link></li>		
@@ -29,14 +30,8 @@ const AdminHeader = () => {
       </ul>
       <ul className='openUl'>
         <li><Link to='/admin/product'> 상품 관리</Link></li>
-        <li><Link to='/admin/member'> 고객 관리</Link></li>
-        {/* 고객 리스트 */}
+        <li><Link to='/admin/member'> 멤버 관리</Link></li>
         <li><Link to='/admin/banner'>메인배너 관리</Link></li>
-        {/* 메인 배너로 출력할 이미지 등록 제거, 링크걸기^^ */}
-        <li>게시글 관리</li>
-        {/* 배너 눌렀을때 이동할 게시글 */}
-        <li>고객센터 관리</li>
-        {/* ? */}
       </ul>
     </div>
   </header>

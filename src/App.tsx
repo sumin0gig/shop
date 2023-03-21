@@ -25,6 +25,12 @@ import AdmBann from './Components/page/Adm/AdmBann';
 import Cart from './Components/page/Cart';
 import CartCredit from './Components/page/CartCredit';
 import CartSuccess from './Components/page/CartSuccess';
+import ProductSearch from './Components/page/ProductSearch';
+import MyPage from './Components/page/MyPage';
+import Info_guide from './Components/page/info/Info_guide';
+import Info_use from './Components/page/info/Info_use';
+import Info_pr from './Components/page/info/Info_pr';
+import Info_recruit from './Components/page/info/Info_recruit';
 
 export const siteName:string= "logo";
 function App() {
@@ -32,6 +38,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<><Header/><Main/><Footer/></>}/>
+        <Route path='/mypage' element={<><Header/><MyPage/><Footer/></>}/>
         <Route path='/cart' element={<><Header/><Cart/><Footer/></>}/>
         <Route path='/cart/credit' element={<><Header/><CartCredit/><Footer/></>}/>
         <Route path='/cart/success' element={<><Header/><CartSuccess/><Footer/></>}/>
@@ -47,6 +54,7 @@ function App() {
         <Route path='/product/cate7' element={<><Header/><ProductList cate={"신발"}/><Footer/></>}/>
         <Route path='/product/cate8' element={<><Header/><ProductList cate={"악세사리"}/><Footer/></>}/>
         <Route path='/product/view/:no' element={<><Header/><ProductItem/><Footer/></>}/>
+        <Route path='/product/search' element={<><Header/><ProductSearch/><Footer/></>}/>
 
         <Route path='/join/1' element={<><Header/><Join_step1/><Footer/></>}/>
         <Route path='/join/2' element={<><Header/><Join_step2/><Footer/></>}/>
@@ -63,6 +71,11 @@ function App() {
 
         <Route path='/info/user' element={<Info_user/>}/>
         <Route path='/info/pri' element={<Info_pri/>}/>
+        <Route path='/info/guide' element={<><Header/><Info_guide/><Footer/></>}/>
+        <Route path='/info/use' element={<><Header/><Info_use/><Footer/></>}/>
+        <Route path='/info/pr' element={<><Header/><Info_pr/><Footer/></>}/>
+        <Route path='/info/recruit' element={<><Header/><Info_recruit/><Footer/></>}/>
+
       </Routes>
       
     </div>

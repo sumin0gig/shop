@@ -9,7 +9,6 @@ import CartAdd from './CartAdd';
 import ProductSlider from './slider/ProductSlider';
 
 const ProductItemC =  () => {
-  window.scrollTo(0,0)
   const date= new Date().toLocaleDateString();  
   const data:productDataType[]= useSelector((state:rootState)=>state.getDataReducer.product)
   const amountdata:prodcutAmountDataType[] =  useSelector((state:rootState)=>state.getDataReducer.product_amount)

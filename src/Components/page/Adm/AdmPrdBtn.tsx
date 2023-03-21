@@ -6,8 +6,8 @@ const AdmPrdBtn = ({prdData,name,clickBtn}:{
   prdData: {p_name: string;
   p_pricemin: number;
   p_pricemax: number;
-  p_salepricemin: number;
-  p_salepricemax: number;
+  p_salepricemin?: number;
+  p_salepricemax?: number;
   p_category: string;
   p_isbest: string;
   p_isnew: string;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { postAmount } from '../../../modules/getDataReducer';
 
@@ -30,6 +30,12 @@ const AdmPrdAmountSetAddMini = ({p_no}:{p_no:number}) => {
       })
     }
   }
+  useEffect(()=>{
+    setFormData({
+      ...formdata,
+      p_no:p_no
+    })
+  },[p_no])
   const onChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
     const {name,value}=e.target;
     setFormData({

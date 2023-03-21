@@ -6,11 +6,8 @@ import "../style/Product.css"
 import { useDispatch } from 'react-redux';
 
 const ProductList = ({cate}:{cate:string}) => {
-  
   const dispatch=useDispatch()
   dispatch(getSomeCate(cate))
-
-  
   return (
     <div className='main inner'>
       <Title title={cate} center={true}/>

@@ -3,6 +3,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../../API/api';
 import { setCookie } from '../../API/Cookie';
+import PopupDom from '../getAddr/PopupDom';
+import PopupPostCode from '../getAddr/PopupPostCode';
 import Title from '../Title';
 import JoinStepUl from './info/JoinStepUl';
 
@@ -16,7 +18,8 @@ export type formDataType={
 	tel_2:string,
 	tel_3:string,
 	tel_check:boolean,
-	birth:string|number,
+	addr:string|number,
+	addrplus:string|number,
 	sms_check:boolean,
 	mail_add1:string,
 	mail_add2:string,
@@ -34,7 +37,6 @@ const Join_step2 = () => {
 	}
 	let navigate=	useNavigate();
 
-	const minYear= new Date().getFullYear()-14
 	const [formdata,setFormData]=useState<formDataType>({
 		name:"",
 		id:"",
@@ -45,7 +47,8 @@ const Join_step2 = () => {
 		tel_2:"",
 		tel_3:"",
 		tel_check:false,
-		birth:minYear,
+		addr:"",
+		addrplus:"",
 		sms_check:true,
 		mail_add1:"",
 		mail_add2:"",
@@ -100,7 +103,7 @@ const Join_step2 = () => {
 			refMove(telChRef)
 		}else{
 			axios.post(`${API_URL}/join`,formdata)
-			setCookie("username",formdata.name)
+			setCookie("userName",formdata.name)
 			navigate("/join/3");
 		}
 	}
@@ -135,6 +138,17 @@ const Join_step2 = () => {
 		formdata.tel_check? "확인되었습니다.": "버튼을 눌러 휴대폰 인증을 진행해주세요.";
 	},[formdata])
 	
+	const [isPopupOpen,setIsPopupOpen]= useState(false);
+	const openPostCode=()=>{setIsPopupOpen(true)}
+	const closePostCode=()=>{setIsPopupOpen(false)}
+	const onAddData=(data: { address: any; })=>{
+		console.log(data);
+		setFormData({
+			...formdata,
+			addr: data.address
+		})
+	}
+
 	return (
 		<div className='main inner'>
 			<Title title={"회원가입"} center={true}/>
@@ -162,7 +176,6 @@ const Join_step2 = () => {
 							<td>비밀번호<span className="star">*</span></td>
 							<td>
 								<input type="password" onChange={onChange} name="pw" ref={pwRef}/>
-								<p className='pwAnnounce'>비밀번호는 8자 이상 입력해주세요.</p>
 							</td>
 						</tr>
 						<tr>
@@ -192,13 +205,17 @@ const Join_step2 = () => {
 							</td>
 						</tr>
 						<tr>
-							<td>생년월일</td>
-							<td>
-								<select onChange={onChange} name="birth">
-									<option value={minYear}>{minYear}</option>
-									{/* 이거 달력 넣어줘 */}
-								</select>
+							<td rowSpan={2}>주소</td>
+							<td><input name="addr" value={formdata.addr} onChange={onChange} /></td>
+							<td rowSpan={2}><button onClick={openPostCode} type='button' className='default white'>우편번호 검색</button>
+								<div id="popupDom">
+									{isPopupOpen&&(<PopupDom><PopupPostCode onclose={closePostCode} onAddData={onAddData} /></PopupDom>)}
+								</div>
 							</td>
+						</tr>
+						<tr>
+							<td><input name="addrplus" value={formdata.addrplus} onChange={onChange} placeholder="추가 주소"/></td>
+
 						</tr>
 						<tr>
 							<td>sms 수신 여부</td>

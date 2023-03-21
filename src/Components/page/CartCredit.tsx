@@ -37,6 +37,7 @@ const CartCredit = () => {
     axios.patch(`${API_URL}/product/amount`,data)
     navigate("/cart/success")
   }
+
   return (
     <div className='main'>
       <div>

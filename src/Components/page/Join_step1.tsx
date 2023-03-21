@@ -26,7 +26,6 @@ const Join_step1 = () => {
 	}
 	return (
 		<div className='main inner'>
-			엥? 카카오톡뭐?
 			<Title title={"회원가입"} center={true}/>
 			<JoinStepUl step={1}/>
 			<div className='joinstepForm'>

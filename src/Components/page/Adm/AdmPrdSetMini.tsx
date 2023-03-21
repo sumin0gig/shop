@@ -16,6 +16,7 @@ const AdmPrdSetMini = ({d,module}:{d:productDataType,module:string}) => {
   }
   const onClickDel=(id:number)=>{
     axios.delete(`${API_URL}/admin/product/update/${id}`)
+    axios.delete(`${API_URL}/admin/product/amount/${id}`)
     .then(
       dispatch(getThunk())
     )
@@ -44,13 +45,13 @@ const AdmPrdSetMini = ({d,module}:{d:productDataType,module:string}) => {
   return (
     <tr>
       <td>
-        <img src={d.p_mainImg} alt="mainImg" className='miniImg' />
+        <a href={`/product/view/${d.p_no}`} target="_blank"><img src={d.p_mainImg} alt="mainImg" className='miniImg' /></a>
       </td>
       <td>
         <div>{d.p_category}</div>
       </td>
       <td>
-        <div>{d.p_name}</div>
+        <a href={`/product/view/${d.p_no}`} target="_blank"><div>{d.p_name}</div></a>
       </td>
       {module==="del"?
       <td>

@@ -42,11 +42,17 @@ const AdmPrdUpdate = ({d,module}:{d:productDataType,module:string}) => {
   },[d])
   const dispatch= useDispatch();
 
-  const onSubmit=()=>{
-    // e.preventDefault();
+  const onSubmit=(e:React.FormEvent<HTMLFormElement>)=>{
+    e.preventDefault();
     switch (module) {
       case 'add':
-        axios.post(`${API_URL}/admin/product/add`,prdData)
+        if(prdData.p_saleprice&&(Number(prdData.p_price)>Number(prdData.p_saleprice))){
+          alert("판매가는 세일가보다 높을 수 없습니다.")
+          break;
+        }else{
+          axios.post(`${API_URL}/admin/product/add`,prdData)
+          window.location.reload();
+        }
         break;
       case 'update':
         axios.patch(`${API_URL}/admin/product/update`,prdData)
@@ -84,7 +90,7 @@ const AdmPrdUpdate = ({d,module}:{d:productDataType,module:string}) => {
           </Link>
           <div className='mainDiv'>
             <h3>메인 사진</h3>
-            <input type="text" onChange={onChange} name='p_mainImg' value={prdData.p_mainImg}/>  
+            <input type="text" onChange={onChange} name='p_mainImg' value={prdData.p_mainImg} placeholder="이미지 URL"/>  
             <pre>메인 사진</pre>
           </div>      
         </div>

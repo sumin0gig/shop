@@ -7,13 +7,15 @@ import { getCookie } from '../API/Cookie';
 import HeaderOpener from './HeaderOpener';
 import { useDispatch } from 'react-redux';
 import { getBestList } from '../modules/getDataReducer';
-
+import SearchForm from './page/SearchForm';
 
 const Header = () => {
 	const dispatch= useDispatch();
 	dispatch(getBestList())
+  window.scrollTo(0,0)
 	return (
 		<header>
+			<SearchForm/>
 			<div className='head top'>
 				<HeaderOpener/>
 				<h1><Link to='/'>{siteName}</Link></h1>
@@ -24,11 +26,11 @@ const Header = () => {
 					<li><Link to='/join/1'>회원가입</Link></li>
 					</>:
 					<li><Link to='/logout'>로그아웃</Link></li>}
-					{getCookie('authority')>1? <li><Link to='/admin'>관리자 페이지</Link></li>:<></>}
+					{getCookie('authority')>1? <li><Link to='/admin/product'>관리자 페이지</Link></li>:<></>}
 					<li>고객센터</li>
 					{getCookie('authority')>0? 
 					<>
-					<li><FaUserAlt/></li>
+					<li><Link to='/mypage'><FaUserAlt/></Link></li>
 					<li><Link to='/cart'><FaShoppingCart/></Link></li>
 					<li><FaHeart/></li>
 					</>

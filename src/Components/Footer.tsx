@@ -2,6 +2,7 @@ import React from 'react';
 import { siteName } from '../App';
 import Commentbox from './Commentbox';
 import './style/Footer.css';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
 	return (
@@ -41,12 +42,10 @@ const Footer = () => {
 			</div>
 			<div className='foot bottom'>
 				<ul className='openUl'>
-					<li>이용안내</li>
-					<li>이용약관</li>
-					<li>개인정보처리방침</li>
-					<li>파트너쉽</li>
-					<li>멤버쉽</li>
-					<li>리크루트</li>
+					<li><Link to="/info/guide">이용안내</Link></li>
+					<li><Link to="/info/use">이용약관</Link></li>
+					<li><Link to="/info/pr">개인정보처리방침</Link></li>
+					<li><Link to="/info/recruit">리크루트</Link></li>
 				</ul>
 				<ul className='openUl'>
 					<li>

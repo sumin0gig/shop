@@ -1,10 +1,9 @@
 import React from 'react';
-import { FaHeart, FaShoppingCart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { useSelector } from 'react-redux';
 import { rootState } from '../../modules';
 import { productDataType } from '../../modules/getDataReducer';
 import { Link } from 'react-router-dom';
-import CartAdd from './CartAdd';
 
 const ListItems = () => {
   let data:productDataType[]= useSelector((state:rootState)=>state.getDataReducer.product);

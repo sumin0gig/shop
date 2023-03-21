@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { rootState } from '../../../modules';
 import { prodcutAmountDataType, productDataType } from '../../../modules/getDataReducer';
 import AdmPrdAmountSetMiniMini from './AdmPrdAmountSetMiniMini';
-import { Link } from 'react-router-dom';
 import AdmPrdAmountSetAddMini from './AdmPrdAmountSetAddMini';
 
 const AdmPrdAmountSetMini = () => {
@@ -23,17 +22,17 @@ const AdmPrdAmountSetMini = () => {
         {data&&data.map((d:productDataType,i:number)=>
         <tr key={i}>
           <td className='img center'>
-            <Link to={`/product/view/${d.p_no}`}>
+            <a href={`/product/view/${d.p_no}`} target="_blank">
               <img src={d.p_mainImg} alt="MainImg" className='miniImg' />
-            </Link>  
+            </a>  
           </td>
           <td className='cate center'>
             {d.p_category}
           </td>
           <td className='name'>
-            <Link to={`/product/view/${d.p_no}`}>
+            <a href={`/product/view/${d.p_no}`} target="_blank">
               {d.p_name}
-            </Link>
+            </a>
           </td>
           <td>
             <tr>

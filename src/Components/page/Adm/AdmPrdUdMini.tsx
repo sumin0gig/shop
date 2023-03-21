@@ -12,7 +12,8 @@ const AdmPrdUdMini = ({onChange,num,Img}:{
         <img src={Img?Img:""} alt={`mini_IMG${num}`} className='miniImg' />
         <div className='productState'>
           <span>{num===0?"상세 설명":`이미지${num}`}</span>
-          <input type="text" onChange={onChange} name={num===0?`p_annImg`:`p_mainMiniImg${num}`} value={Img?Img:""} />
+          <input type="text" onChange={onChange} name={num===0?`p_annImg`:`p_mainMiniImg${num}`} value={Img?Img:""} 
+          placeholder="이미지 URL"/>
         </div>
       </div>
         <pre>{num===0?"상세화면에서 출력되는 상세설명 이미지":"상세화면에서 출력되는 미니 이미지"}</pre>
