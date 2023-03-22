@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { rootState } from '../../modules';
 import { productDataType } from '../../modules/getDataReducer';
 import { Link } from 'react-router-dom';
+import ClickHeart from '../../modules/ClickHeart';
 
 const ListItems = () => {
   let data:productDataType[]= useSelector((state:rootState)=>state.getDataReducer.product);
@@ -39,7 +40,7 @@ const ListItems = () => {
                     </div>
                   </Link>
                   <div className="icons">
-                    <p><FaHeart/></p>
+                  {data&&<p onClick={()=>ClickHeart(d.p_no,d.p_mainImg,d.p_name,d.p_price,d.p_saleprice||0)}><FaHeart/></p>}
                   </div>
                 </div>
               

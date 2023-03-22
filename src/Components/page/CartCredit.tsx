@@ -24,8 +24,8 @@ const CartCredit = () => {
   })
   useEffect(()=>{
     setState({
-      TotalPrice:data?data.map(d=>d.c_price).reduce((a,b)=>a+b):0,
-      TotalSalePrice:data?data.map(d=>d.c_saleprice).reduce((a,b)=>(a||0)+(b||0)):0,
+      TotalPrice:data?data.map(d=>d.c_price*d.c_amount).reduce((a,b)=>a+b):0,
+      TotalSalePrice:data?data.map(d=>(d.c_saleprice||0)*d.c_amount).reduce((a,b)=>(a||0)+(b||0)):0,
       delivery:state.TotalPrice<80000?3000:0
     })
   },[data,memberdata])
@@ -73,8 +73,8 @@ const CartCredit = () => {
                 <p>{c.c_amount}개</p>
               </td>
               <td>
-                {c.c_saleprice?<s className="saleprice">{c.c_saleprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</s>:null}
-                <p className="price">{c.c_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
+                {c.c_saleprice?<s className="saleprice">{(c.c_saleprice*c.c_amount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</s>:null}
+                <p className="price">{(c.c_price*c.c_amount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</p>
                 {c.c_saleprice?<p className="salePro">{100-Math.trunc(c.c_price/c.c_saleprice*100)}%</p>:null}
               </td>
             </tr>

@@ -106,6 +106,7 @@ table{
 .inputs{
 	display: flex;
 	flex-flow: row nowrap;
+  align-items: center;
 }
 .btns{
   display: flex;
@@ -116,6 +117,8 @@ table{
   color: #fff;
   text-align: center;
   margin: 2px;
+  font-size: 9px;
+  padding: 4px;
 }
 .new{
   background-color: var(--new-color)!important;
@@ -161,7 +164,9 @@ table{
   left: 50%;
   transform: translateX(-50%);
 }
-
+.balloon.new , .balloon.best{
+  font-size: 15px;
+}
 /* ul */
 .openUl{
 	display: flex;
@@ -221,6 +226,9 @@ button.noneBg{
 h1{
   margin: 70px 0;
 }
+h2{
+  margin-bottom: 50px;
+}
 h3{
   font-weight: 900;
 }
@@ -265,6 +273,10 @@ pre{
   grid-template-areas: 
   "saleprice salePro"
   "price salePro";
+}
+p.name{
+  color: #878787;
+  height: 50px;
 }
 s.saleprcie{
   grid-area: saleprice;

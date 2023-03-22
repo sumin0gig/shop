@@ -61,7 +61,7 @@ const SearchForm = () => {
               </tr>
               <tr>
                 <th>제품명</th>
-                <td><input type="text" name='p_name' value={prdData.p_name} onChange={onChange}/></td>
+                <td><input type="text" name='p_name' value={prdData.p_name} onChange={onChange} max={20}/></td>
               </tr>
               <tr>
                 <th>가격</th>

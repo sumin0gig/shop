@@ -7,7 +7,8 @@ import '../../style/Slider.css';
 import { useSelector } from "react-redux";
 import { rootState } from "../../../modules";
 import { Link } from "react-router-dom";
-import CartAdd from "../CartAdd";
+import ClickHeart from "../../../modules/ClickHeart";
+import { bestProductDataType } from "../../../modules/getDataReducer";
 
 const MiniSlider=()=>{
   var settings = {
@@ -19,12 +20,12 @@ const MiniSlider=()=>{
     pauseOnHover: true
   };
 
-  const data= useSelector((state:rootState)=>state.getDataReducer.bestproduct)
+  const data:bestProductDataType[]= useSelector((state:rootState)=>state.getDataReducer.bestproduct)
   if (!data) return <div>no data</div>
   return (
     // bestItem slider
     <Slider {...settings}>
-      {data.map((d:any,i:number)=>
+      {data.map((d,i:number)=>
         <div key={i}>
           <Link to={`/product/view/${d.p_no}`}>
             <div className="miniSliderImg">
@@ -44,7 +45,7 @@ const MiniSlider=()=>{
                   </div>
                 </Link>
                 <div className="icons">
-                  <p><FaHeart/></p>
+                  {data&&<p onClick={()=>ClickHeart(d.p_no,d.p_mainImg,d.p_name,d.p_price,d.p_saleprice||0)}><FaHeart/></p>}
                 </div>
               </div>
             </div>

@@ -24,3 +24,9 @@ ul.items > li{
 .item-content .info{
   display: inline;
 }
+/* best */
+.best_banner{
+  width: 100%;
+  background-color: rgb(248, 226, 228);
+  text-align: center;
+}

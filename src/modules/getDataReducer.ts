@@ -45,6 +45,13 @@ export type productDataType={
   p_mainMiniImg4?:string|null,
   p_annImg?:string|null,
 }
+export type bestProductDataType={
+  p_no: number;
+  p_name: string ; 
+  p_price: number;
+  p_saleprice: number|null;
+  p_mainImg: string;
+}
 export type prodcutAmountDataType={
   pa_no?:number,
   p_no:number,

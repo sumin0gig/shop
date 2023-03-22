@@ -27,12 +27,11 @@ const Header = () => {
 					</>:
 					<li><Link to='/logout'>로그아웃</Link></li>}
 					{getCookie('authority')>1? <li><Link to='/admin/product'>관리자 페이지</Link></li>:<></>}
-					<li>고객센터</li>
 					{getCookie('authority')>0? 
 					<>
 					<li><Link to='/mypage'><FaUserAlt/></Link></li>
 					<li><Link to='/cart'><FaShoppingCart/></Link></li>
-					<li><FaHeart/></li>
+					<li><Link to='/heart'><FaHeart/></Link></li>
 					</>
 					:
 					<></>}

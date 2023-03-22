@@ -54,34 +54,41 @@ const Login = () => {
   const dispatch=useDispatch()
   dispatch({type:DEL_MEMBER})
   return (
-		<div className='main inner'>
-      <div className='loginform'>
-        <form className='loginform_left' onSubmit={onSubmit}>
-          <Title title='로그인'/>
-          <div className='logininputs'>
-            <input type="text" placeholder='ID' onChange={onChange} name="m_id"/>
-            <input type="password" placeholder='PW' onChange={onChange} name="m_pw"/>
-          </div>
-          <div className='loginSearch'>
-            <p><Link to="/idSearch">아이디 찾기</Link></p>
-            <p><Link to="/pwSearch">비밀번호 찾기</Link></p>
-          </div>
-          <button className='default'>로그인</button>
-        </form>
-        <div className='loginform_right'>
-          <Title title={`${siteName} 가입하기`}/>
-          <p><span><GrCheckmark/></span> 매달 쏟아지는 이벤트를 즐기세요.</p>
-          <p><span><GrCheckmark/></span> 회원 전용 추가 할인 혜택을 받아보세요.</p>
-          <p><span><GrCheckmark/></span> 회원만의 포인트 적립 및 사용을 누려보세요.</p>
-          <p><cite> {siteName}의 베스트 제품을 지금 만나보세요!</cite></p>
-          <div className='loginJoin'>
-            <Link to="/join/1"><h4><BsFillArrowRightCircleFill/> 회원가입하기</h4></Link>
-          </div>
+    <div className="main">
+      <div className='inner'>
+        <div className='loginbanner_top'>
+          배너
         </div>
-        
+        <div className='loginform'>
+          <form className='loginform_left' onSubmit={onSubmit}>
+            <Title title='로그인'/>
+            <div className='logininputs'>
+              <input type="text" placeholder='ID' onChange={onChange} name="m_id"/>
+              <input type="password" placeholder='PW' onChange={onChange} name="m_pw"/>
+            </div>
+            <div className='loginSearch'>
+              <p><Link to="/idSearch">아이디 찾기</Link></p>
+              <p><Link to="/pwSearch">비밀번호 찾기</Link></p>
+            </div>
+            <button className='default'>로그인</button>
+          </form>
+          <div className='loginform_right'>
+            <Title title={`${siteName} 가입하기`}/>
+            <p><span><GrCheckmark/></span> 매달 쏟아지는 이벤트를 즐기세요.</p>
+            <p><span><GrCheckmark/></span> 회원 전용 추가 할인 혜택을 받아보세요.</p>
+            <p><span><GrCheckmark/></span> 회원만의 포인트 적립 및 사용을 누려보세요.</p>
+            <p><cite> {siteName}의 베스트 제품을 지금 만나보세요!</cite></p>
+            <div className='loginJoin'>
+              <Link to="/join/1"><h4><BsFillArrowRightCircleFill/> 회원가입하기</h4></Link>
+            </div>
+          </div>
+          
+        </div>
       </div>
-      <div className='loginbanner '>
-        배너
+      <div className="loginbanner_bottom">
+        <img src="https://atimg.sonyunara.com/files/attrangs/admin/1661405913_0.png" alt="" />
+        <img src="https://atimg.sonyunara.com/files/attrangs/admin/1660800750_0.gif" alt="" />
+        <img src="https://atimg.sonyunara.com/files/attrangs/admin/1660800576_0.png" alt="" />
       </div>
     </div>
   );

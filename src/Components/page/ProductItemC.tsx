@@ -22,7 +22,8 @@ const ProductItemC =  () => {
   const [formdata,setFormData]=useState({
     pa_no:0,
     color:"",
-    size:""
+    size:"",
+    amount:1,
   })
   
   const onClick=(name:string,value:string,no:number)=>{
@@ -30,6 +31,12 @@ const ProductItemC =  () => {
       ...formdata,
       pa_no:no||0,
       [name]:value
+    })
+  }
+  const onChange=(e:React.ChangeEvent<HTMLInputElement>)=>{
+    setFormData({
+      ...formdata,
+      amount:Number(e.target.value)
     })
   }
   const navigate= useNavigate();
@@ -44,8 +51,9 @@ const ProductItemC =  () => {
       CartAdd(formdata,data);
     }
   }
-
-  
+  const soldOutClick=()=>{
+    alert("품절된 상품입니다.");
+  }  
   return (
     <>
       {data&&data.map((d:productDataType,i:number)=>
@@ -56,7 +64,7 @@ const ProductItemC =  () => {
           </div>
           <div className="right">
             <div className="textDiv">
-              <h1>{d.p_name}</h1>
+              <h2>{d.p_name}</h2>
               <div className="priceDiv">
                 {d.p_saleprice?
                 <>
@@ -95,18 +103,31 @@ const ProductItemC =  () => {
                       <td className='btns'>
                         {amountdata&&amountdata.filter(a=>a.pa_color===formdata.color).map((a,i)=>
                         <div className='balloon-div' key={i}>
-                          <button className={formdata.size===a.pa_size? "default" :"default white"} type='button'
-                         onClick={()=>onClick("size",a.pa_size,a.pa_no!)}>
-                          {a.pa_size}
-                          </button> 
-                            {Number(a.pa_amount)<=10?
-                            <div className='balloon'>
-                              수량임박!
-                            </div>
-                            :null 
-                            }
+                          {Number(a.pa_amount)<=0?
+                          <button className='soldOut' type='button' onClick={soldOutClick}>품절({a.pa_size})</button>
+                          :<>
+                            <button className={formdata.size===a.pa_size? "default" :"default white"} type='button'
+                          onClick={()=>onClick("size",a.pa_size,a.pa_no!)}>
+                            {a.pa_size}
+                            </button> 
+                              {Number(a.pa_amount)<=10?
+                              <div className='balloon'>
+                                수량임박!
+                              </div>
+                              :null 
+                              }
+                            </>
+                          }
                         </div>
                         )}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>
+                        수량
+                      </th>
+                      <td>
+                        <input type="number" value={formdata.amount} onChange={onChange} max={9}/>
                       </td>
                     </tr>
                     <tr>

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Dispatch } from "redux";
 import { API_URL } from "../API/api";
+import { memberDataType } from "./getDataReducer";
 
 // 액션타입 선언
 const GET_CART='getCartReducer/GET_CART';
@@ -22,11 +23,20 @@ export type cartDataType={
   cp_size: string;
 }
 // memberDataType은 getDataReducer
+export type heartDataType={
+  h_no:number;
+  m_no:number;
+  p_no:number;
+  p_mainImg:string;
+  p_name:string;
+  p_price:number;
+  p_saleprice:number;
+}
 
 export type CartstateType={
   cart:cartDataType[]|null;
-  heart:null;
-  member:null;
+  heart:heartDataType[]|null;
+  member:memberDataType[]|null;
 }
 
 // <--- thunk 함수
@@ -66,10 +76,46 @@ async (dispatch:Dispatch)=>{
     const response= await axios.get(`${API_URL}/member/${no}`)
     const data=response.data;
     dispatch({type:GET_MEMBER, payload:data})
-    console.log(data);
-    
   }catch(e){
     alert(e);
+  }
+}
+export const patchMemberOne=(no:number,formdata:{
+    m_name: string;
+    m_tel_1: number;
+    m_tel_2: number;
+    m_tel_3: number;
+    m_sms_check: boolean;
+    m_mail_add1: string;
+    m_mail_add2: string;
+    m_mail_check: boolean;
+}):any=>
+async (dispatch:Dispatch)=>{
+  try{
+    axios.patch(`${API_URL}/member/${no}`,formdata)
+    dispatch(nowMember(no))
+  }catch(e){
+    alert(e);
+  }
+}
+
+export const getHeart=(no:number):any=>
+async(dispatch:Dispatch)=>{
+  try{
+    const response= await axios.get(`${API_URL}/heart/${no}`)
+    const data=response.data;
+    dispatch({type:GET_HEART, payload:data})
+  }catch(e){
+    alert(e);
+  }
+}
+export const delHeart=(userNo:number,no:number):any=>
+async(dispatch:Dispatch)=>{
+  try{
+    axios.delete(`${API_URL}/heart/${no}`)
+    dispatch(getHeart(userNo))
+  }catch(e){
+    alert(e)
   }
 }
 

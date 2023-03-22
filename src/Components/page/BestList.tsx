@@ -8,9 +8,14 @@ const BestList = () => {
   const dispatch= useDispatch()
   dispatch(getSomeIs("p_isbest"))
   return (
-    <div className='main inner'>
-      <Title title={"BEST"} center={true}/>
-      <ListItems />
+    <div className='main'>
+      <div className="best_banner">
+        <img src='https://i.ibb.co/mNqGL7T/best-banner.png' alt="bestItem" />
+      </div>
+      <div className="inner">
+        <Title title={"BEST"} center={true}/>
+        <ListItems />
+      </div>
     </div>
   );
 };

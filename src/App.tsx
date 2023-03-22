@@ -31,6 +31,8 @@ import Info_guide from './Components/page/info/Info_guide';
 import Info_use from './Components/page/info/Info_use';
 import Info_pr from './Components/page/info/Info_pr';
 import Info_recruit from './Components/page/info/Info_recruit';
+import MyProfile from './Components/page/MyProfile';
+import Heart from './Components/page/Heart';
 
 export const siteName:string= "logo";
 function App() {
@@ -39,9 +41,11 @@ function App() {
       <Routes>
         <Route path='/' element={<><Header/><Main/><Footer/></>}/>
         <Route path='/mypage' element={<><Header/><MyPage/><Footer/></>}/>
+        <Route path='/myprofile' element={<><Header/><MyProfile/><Footer/></>}/>
         <Route path='/cart' element={<><Header/><Cart/><Footer/></>}/>
         <Route path='/cart/credit' element={<><Header/><CartCredit/><Footer/></>}/>
         <Route path='/cart/success' element={<><Header/><CartSuccess/><Footer/></>}/>
+        <Route path='/heart' element={<><Header/><Heart/><Footer/></>}/>
 
         <Route path='/product/best' element={<><Header/><BestList/><Footer/></>}/>
         <Route path='/product/new' element={<><Header/><NewList/><Footer/></>}/>

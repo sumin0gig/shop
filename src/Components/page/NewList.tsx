@@ -9,6 +9,7 @@ const NewList = () => {
   dispatch(getSomeIs("p_isnew"))
   return (
     <div className='main inner'>
+      <img src="https://atimg.sonyunara.com/attrangs/story/ysy/intro24.gif" className='inDiv' alt="newItem" />
       <Title title='NEW' center={true}/>
       <ListItems/>
     </div>

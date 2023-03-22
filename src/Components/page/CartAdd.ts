@@ -10,6 +10,7 @@ const CartAdd = (
   pa_no: number;
   color: string;
   size: string;
+  amount: number;
   },
   data:productDataType[]
 ) => {
@@ -20,7 +21,7 @@ const CartAdd = (
     cp_name:data[0].p_name,
     c_saleprice:data[0].p_saleprice,
     c_price:data[0].p_price,
-    c_amount:1,
+    c_amount:formdata.amount,
     cp_img:data[0].p_mainImg,
     cp_color:formdata.color,
     cp_size:formdata.size,

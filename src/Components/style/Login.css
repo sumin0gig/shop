@@ -27,13 +27,13 @@
   flex-direction: column;
   width: 100%;
 }
-.loginbanner{
+.loginbanner_top{
   font-size: 0;
-  margin: 30px 0;
-  background: url('../../../public/login_banner.png') 50% 0/auto 100px no-repeat scroll rgb(219,194,153);
+  background: url('../../../public/login_banner.png') 50% 0/auto 100px no-repeat scroll rgb(128,128,128);
   background-size: contain;
-  width: 1200px;
-  height: 200px;
+  width: 100%;
+  margin-bottom: 50px;
+  height: 100px;
 }
 .loginSearch{
   width: 90%;
@@ -56,4 +56,13 @@
 span.star{
   color: orangered;
   padding-left: 5px;
+}
+
+.loginbanner_bottom{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.loginbanner_bottom >img{
+  width: 33%;
 }

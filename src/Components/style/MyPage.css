@@ -1,11 +1,26 @@
+.mpBox{
+  display: flex;
+  border: 1px solid var(--light-gray-color);
+  width: 100%;
+  text-align: center;
+  margin-top: 70px;
+  margin-bottom: 40px;
+  padding: 50px 10px;
+}
+.mpBox > div{
+  width: 23%;
+}
 .mpList{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
+}
+.mpList > a{
+  width: 23%;
 }
 .mpList_box{
   border: 1px solid var(--light-gray-color);
-  width: 30%;
   height: 160px;
   margin: 30px 0;
   display: flex;
@@ -17,3 +32,17 @@
 .mpList_box:hover{
   background-color: #eee;
 }
+.mpInputs{
+  margin-bottom: 40px;
+}
+.mpInputs .inputs{
+  height: 120px;
+}
+.inputs > span {
+  width: 30%;
+  font-weight: bold;
+}
+.inputs > div{
+  width: 70%;
+}
+
